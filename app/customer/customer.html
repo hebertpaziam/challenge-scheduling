@@ -1,0 +1,25 @@
+<ava-hdr-app [pageName]="'Clientes'" [icon]="'glyphicon glyphicon-user'"></ava-hdr-app>
+<div class="page-content">
+    <table class="table table-borded table-striped table-hover table-responsive">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Contato</th>
+                <th>E-mail</th>
+                <th>Responsavel</th>
+                <th>Detalhes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let customer of customers">
+                <td>{{ customer.id }}</td>
+                <td>{{ customer.name}}</td>
+                <td>{{ customer.contact }}</td>
+                <td>{{ customer.email }}</td>
+                <td>{{ getSponsorName(customer) }}</td>
+                <td><span class="glyphicon glyphicon-folder-open" [routerLink]="['/customers', 'details', customer.id]"></span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,34 @@
+<ava-hdr-app [icon]="'glyphicon-briefcase'" [pageName]="'Profissionais'"></ava-hdr-app>
+<div class="page-content">
+    <table class="table table-borded table-striped table-hover table-responsive">
+        <thead>
+            <tr>    
+                <th>ID</th>
+                <th>PID</th>
+                <th>EID</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Cargo</th>
+                <th>Telefone</th>
+                <th>Detalhes</th>  
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let professional of professionals">
+                <td>{{professional.professionalId}}</td>
+                <td>{{professional.pid}}</td>
+                <td>{{professional.eid}}</td>
+                <td>{{professional.name}}</td>
+                <td>{{professional.email | emailHider}}</td>
+                <td>{{professional.role}}</td>
+                <td>{{professional.phone}}</td>
+                <td>
+                    <button type="button" class="btn btn-default" aria-label="Right Align" [routerLink]="'/professional/details/'+ professional.professionalId">
+                        <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <router-outlet></router-outlet>
+</div>
