@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Role } from './role';
-import { RoleService } from './role.service';
+import { Role } from '../shared/role.model';
+import { RoleService } from '../role.service';
 
 
 @Component({
     moduleId: module.id,
-    templateUrl: 'role-details.html'
+    templateUrl: 'role-details.component.html'
 })
 
 export class RoleDetailsComponent implements OnInit {

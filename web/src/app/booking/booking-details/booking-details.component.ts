@@ -2,18 +2,18 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Booking } from './booking';
-import { BookingService } from './booking.service';
+import { Booking } from '../shared/booking.model';
+import { BookingService } from '../booking.service';
 
-import { Professional } from '../professional/professional';
-import { ProfessionalService } from '../professional/professional.service';
+import { Professional } from '../../professional/shared/professional.model';
+import { ProfessionalService } from '../../professional/professional.service';
 
-import { Project } from '../project/project';
-import { ProjectService } from '../project/project.service';
+import { Project } from '../../project/shared/project.model';
+import { ProjectService } from '../../project/project.service';
 
 @Component({
     moduleId: module.id,
-    templateUrl: 'booking-details.html'
+    templateUrl: 'booking-details.component.html'
 })
 export class BookingDetailComponent implements OnInit {
     constructor(private _bookingService: BookingService,

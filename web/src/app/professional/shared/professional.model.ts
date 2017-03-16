@@ -1,5 +1,5 @@
 import { IProfessional } from './professional.interface';
-import { Role } from '../role/role'
+import { Role } from '../../role/shared/role.model'
 
 export class Professional implements IProfessional {
     

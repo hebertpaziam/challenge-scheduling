@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 
-import { Customer } from './customer'
+import { Customer } from './shared/customer.model'
 
 
 @Injectable()

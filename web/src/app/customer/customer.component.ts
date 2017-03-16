@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Customer } from './customer';
-import { Professional } from './../professional/professional';
+import { Customer } from './shared/customer.model';
+import { Professional } from './../professional/shared/professional.model';
 
 import { CustomerService } from './customer.service';
 import { ProfessionalService } from './../professional/professional.service';
@@ -9,7 +9,7 @@ import { ProfessionalService } from './../professional/professional.service';
 @Component({
     moduleId: module.id,
     selector: 'ava-cus-app',
-    templateUrl: 'customer.html',
+    templateUrl: 'customer.component.html',
     styles: ['tbody > tr > td > span { cursor:pointer }', 'table{text-align:center}']
 })
 

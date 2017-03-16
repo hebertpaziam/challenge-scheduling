@@ -1,8 +1,8 @@
-import { Project } from './../project/project';
-import { Booking } from '../booking/booking';
-import { Customer } from '../customer/customer';
-import { Professional } from '../professional/professional';
-import { Role } from '../role/role';
+import { Project } from './../project/shared/project.model';
+import { Booking } from '../booking/shared/booking.model';
+import { Customer } from '../customer/shared/customer.model';
+import { Professional } from '../professional/shared/professional.model';
+import { Role } from '../role/shared/role.model';
 
 export const BOOKINGS: Booking[] = [
     {

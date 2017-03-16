@@ -1,10 +1,10 @@
 import { Injectable } from "@angular/core";
 import { Http, Response } from "@angular/http";
 
-import { Professional } from './professional';
+import { Professional } from './shared/professional.model';
 import { PROFESSIONALS } from '../shared/mock';
 
-import { Role } from '../role/role';
+import { Role } from '../role/shared/role.model';
 
 const SERVICE_URL: string = "/api/professional";
 

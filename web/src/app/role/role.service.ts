@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 
-import { Role } from './role';
+import { Role } from './shared/role.model';
 
 const SERVICE_URL: string = 'api/role';
 

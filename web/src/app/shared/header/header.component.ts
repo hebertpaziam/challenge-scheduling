@@ -3,7 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 @Component({
     moduleId: module.id,
     selector: 'ava-hdr-app',
-    templateUrl: 'header.html'
+    templateUrl: 'header.component.html'
 })
 
 export class HeaderComponent implements OnInit{

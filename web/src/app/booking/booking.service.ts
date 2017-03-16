@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 
-import { Booking } from './booking';
+import { Booking } from './shared/booking.model';
 
-import { Project } from '../project/project';
+import { Project } from '../project/shared/project.model';
 import { ProjectService } from '../project/project.service';
 
-import { Professional } from '../professional/professional';
+import { Professional } from '../professional/shared/professional.model';
 import { ProfessionalService } from '../professional/professional.service';
 
 const SERVICE_URL: string = '/api/booking';

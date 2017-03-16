@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule} from '@angular/router';
 
 import { RoleComponent } from './role.component';
-import { RoleDetailsComponent } from './role-details.component';
+import { RoleDetailsComponent } from './role-details/role-details.component';
 
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';

@@ -9,8 +9,6 @@ import { ProjectModule } from './project/project.module';
 import { ProfessionalModule } from './professional/professional.module';
 import { RoleModule } from './role/role.module';
 
-import { WelcomeComponent } from './welcome.component';
-
 import { AppComponent } from './app.component';
 
 import { LoaderComponent } from './shared/loader/loader.component'; 
@@ -24,11 +22,10 @@ import { LoaderComponent } from './shared/loader/loader.component';
                HttpModule, 
                ProjectModule,
     RouterModule.forRoot([
-        { path: 'welcome', component: WelcomeComponent},
-        { path: '', redirectTo:'/welcome', pathMatch:'full'},
+        { path: '', redirectTo:'/', pathMatch:'full'},
     ])],
 
-    declarations: [AppComponent, WelcomeComponent, LoaderComponent],
+    declarations: [AppComponent, LoaderComponent],
     bootstrap: [AppComponent]
 })
 

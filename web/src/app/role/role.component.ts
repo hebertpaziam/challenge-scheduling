@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Role } from './role';
+import { Role } from './shared/role.model';
 import { RoleService } from './role.service';
 
 
@@ -7,7 +7,7 @@ import { RoleService } from './role.service';
 @Component({
     moduleId: module.id,
     selector: 'ava-rol-app',
-    templateUrl: 'role.html'
+    templateUrl: 'role.component.html'
 })
 
 export class RoleComponent {

@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Project } from './project';
+import { Project } from './shared/project.model';
 import { ProjectService } from './project.service';
 
-import { Customer } from '../customer/customer';
+import { Customer } from '../customer/shared/customer.model';
 import { CustomerService } from '../customer/customer.service';
 
-import { Professional } from '../professional/professional';
+import { Professional } from '../professional/shared/professional.model';
 import { ProfessionalService } from '../professional/professional.service';
 
 import 'rxjs/add/operator/toPromise';
@@ -14,7 +14,7 @@ import 'rxjs/add/operator/toPromise';
 @Component({
     moduleId: module.id,
     selector: 'ava-pro-app',
-    templateUrl: 'project.html'
+    templateUrl: 'project.component.html'
 })
 
 export class ProjectComponent implements OnInit {

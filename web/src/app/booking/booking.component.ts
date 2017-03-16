@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Booking } from './booking';
+import { Booking } from './shared/booking.model';
 import { BookingService } from './booking.service';
 
-import { Project } from '../project/project';
+import { Project } from '../project/shared/project.model';
 import { ProjectService } from '../project/project.service';
 
-import { Professional } from '../professional/professional';
+import { Professional } from '../professional/shared/professional.model';
 import { ProfessionalService } from '../professional/professional.service';
 
 import 'rxjs/add/operator/toPromise';
@@ -14,7 +14,7 @@ import 'rxjs/add/operator/toPromise';
 @Component({
     moduleId: module.id,
     selector: 'ava-bok-app',
-    templateUrl: 'booking.html'
+    templateUrl: 'booking.component.html'
 })
 
 export class BookingComponent implements OnInit {

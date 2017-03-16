@@ -3,9 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Router } from '@angular/router';
 
 import { BookingComponent } from './booking.component';
-import { BookingDetailComponent } from './booking-details.component';
+import { BookingDetailComponent } from './booking-details/booking-details.component';
 
-import { PercentualFilter } from '../shared/filter/percentual';
+import { PercentualFilter } from '../shared/filters/percentual';
 
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule } from '@angular/forms';

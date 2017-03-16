@@ -2,15 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Customer } from './customer';
-import { Professional } from './../professional/professional';
+import { Customer } from '../shared/customer.model';
+import { Professional } from '../../professional/shared/professional.model';
 
-import { CustomerService } from './customer.service';
-import { ProfessionalService } from './../professional/professional.service';
+import { CustomerService } from '../customer.service';
+import { ProfessionalService } from '../../professional/professional.service';
 
 @Component({
     moduleId: module.id,
-    templateUrl: 'customer-details.html'
+    templateUrl: 'customer-details.component.html'
 })
 export class CustomerDetailsComponent implements OnInit {
 

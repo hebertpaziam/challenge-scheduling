@@ -2,15 +2,15 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Professional } from './professional';
-import { Role } from '../role/role'
+import { Professional } from '../shared/professional.model';
+import { Role } from '../../role/shared/role.model'
 
-import { ProfessionalService } from './professional.service';
-import { RoleService } from '../role/role.service';
+import { ProfessionalService } from '../professional.service';
+import { RoleService } from '../../role/role.service';
 
 @Component({
     moduleId: module.id,
-    templateUrl: './professional-details.html'
+    templateUrl: './professional-details.component.html'
 })
 
 export class ProfessionalDetailComponent {

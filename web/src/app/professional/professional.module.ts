@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Router } from '@angular/router';
 
 import { ProfessionalComponent } from './professional.component';
-import { ProfessionalDetailComponent } from './professional-details.component'
+import { ProfessionalDetailComponent } from './professional-details/professional-details.component'
 
-import { EmailHider } from '../shared/filter/EmailHider';
+import { EmailHider } from '../shared/filters/EmailHider';
 import { SharedModule } from '../shared/shared.module'
 import { ProfessionalService } from './professional.service';
 

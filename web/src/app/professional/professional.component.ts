@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { Professional } from './professional';
+import { Professional } from './shared/professional.model';
 import { ProfessionalService } from './professional.service';
 
-import { Role } from '../role/role'
+import { Role } from '../role/shared/role.model'
 import { RoleService } from '../role/role.service';
 
 
@@ -11,7 +11,7 @@ import { RoleService } from '../role/role.service';
 @Component({
     moduleId: module.id,
     selector: 'ava-pro-app',
-    templateUrl: './professional.html'
+    templateUrl: './professional.component.html'
 })
 export class ProfessionalComponent {
     constructor (private _professionalService: ProfessionalService, private _roleService: RoleService){}

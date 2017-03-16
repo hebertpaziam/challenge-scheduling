@@ -1,7 +1,7 @@
 import { IBooking } from './booking.interface';
 
-import { Project } from '../project/project';
-import { Professional } from '../professional/professional';
+import { Project } from '../../project/shared/project.model';
+import { Professional } from '../../professional/shared/professional.model';
 
 export class Booking implements IBooking {
     id: number;

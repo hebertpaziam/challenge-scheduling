@@ -2,18 +2,18 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Project } from './project';
-import { ProjectService } from './project.service';
+import { Project } from '../shared/project.model';
+import { ProjectService } from '../project.service';
 
-import { Professional } from '../professional/professional';
-import { ProfessionalService } from '../professional/professional.service';
+import { Professional } from '../../professional/shared/professional.model';
+import { ProfessionalService } from '../../professional/professional.service';
 
-import { Customer } from '../customer/customer';
-import { CustomerService } from '../customer/customer.service';
+import { Customer } from '../../customer/shared/customer.model';
+import { CustomerService } from '../../customer/customer.service';
 
 @Component({
     moduleId: module.id,
-    templateUrl: 'project-details.html'
+    templateUrl: 'project-details.component.html'
 })
 
 export class ProjectDetailsComponent implements OnInit {
