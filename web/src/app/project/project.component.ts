@@ -14,7 +14,7 @@ import 'rxjs/add/operator/toPromise';
 @Component({
     moduleId: module.id,
     selector: 'ava-pro-app',
-    templateUrl: 'project.component.html'
+    templateUrl: './project.component.html'
 })
 
 export class ProjectComponent implements OnInit {

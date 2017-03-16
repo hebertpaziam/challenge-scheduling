@@ -13,7 +13,7 @@ import { CustomerService } from '../../customer/customer.service';
 
 @Component({
     moduleId: module.id,
-    templateUrl: 'project-details.component.html'
+    templateUrl: './project-details.component.html'
 })
 
 export class ProjectDetailsComponent implements OnInit {

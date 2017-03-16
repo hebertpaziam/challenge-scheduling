@@ -13,7 +13,7 @@ import { ProjectService } from '../../project/project.service';
 
 @Component({
     moduleId: module.id,
-    templateUrl: 'booking-details.component.html'
+    templateUrl: './booking-details.component.html'
 })
 export class BookingDetailComponent implements OnInit {
     constructor(private _bookingService: BookingService,

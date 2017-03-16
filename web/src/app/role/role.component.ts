@@ -7,7 +7,7 @@ import { RoleService } from './role.service';
 @Component({
     moduleId: module.id,
     selector: 'ava-rol-app',
-    templateUrl: 'role.component.html'
+    templateUrl: './role.component.html'
 })
 
 export class RoleComponent {

@@ -8,7 +8,7 @@ import { RoleService } from '../role.service';
 
 @Component({
     moduleId: module.id,
-    templateUrl: 'role-details.component.html'
+    templateUrl: './role-details.component.html'
 })
 
 export class RoleDetailsComponent implements OnInit {

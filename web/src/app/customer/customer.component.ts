@@ -9,7 +9,7 @@ import { ProfessionalService } from './../professional/professional.service';
 @Component({
     moduleId: module.id,
     selector: 'ava-cus-app',
-    templateUrl: 'customer.component.html',
+    templateUrl: './customer.component.html',
     styles: ['tbody > tr > td > span { cursor:pointer }', 'table{text-align:center}']
 })
 

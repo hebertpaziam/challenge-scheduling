@@ -10,7 +10,7 @@ import { ProfessionalService } from '../../professional/professional.service';
 
 @Component({
     moduleId: module.id,
-    templateUrl: 'customer-details.component.html'
+    templateUrl: './customer-details.component.html'
 })
 export class CustomerDetailsComponent implements OnInit {
 

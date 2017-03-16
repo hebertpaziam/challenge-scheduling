@@ -14,7 +14,7 @@ import 'rxjs/add/operator/toPromise';
 @Component({
     moduleId: module.id,
     selector: 'ava-bok-app',
-    templateUrl: 'booking.component.html'
+    templateUrl: './booking.component.html'
 })
 
 export class BookingComponent implements OnInit {
