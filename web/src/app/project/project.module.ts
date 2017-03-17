@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Router } from '@angular/router';
 
 import { ProjectComponent } from './project.component';
-import { ProjectDetailsComponent } from './project-details.component';
+import { ProjectDetailsComponent } from './project-details/project-details.component';
 
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule } from '@angular/forms';
@@ -18,5 +18,4 @@ import { ProjectService } from './project.service';
     declarations: [ ProjectComponent, ProjectDetailsComponent ],
     providers: [ ProjectService ]   
 })
-
 export class ProjectModule { }

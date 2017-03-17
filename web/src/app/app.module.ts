@@ -11,7 +11,7 @@ import { RoleModule } from './role/role.module';
 
 import { AppComponent } from './app.component';
 
-import { LoaderComponent } from './shared/loader/loader.component'; 
+import { LoaderComponent } from './shared/loader/loader.component';
 
 @NgModule({
     imports: [ BrowserModule,
