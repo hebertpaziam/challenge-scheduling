@@ -3,7 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { Booking } from '../shared/booking.model';
-import { BookingService } from '../booking.service';
+import { BookingService } from '../shared/booking.service';
 
 import { Professional } from '../../professional/shared/professional.model';
 import { ProfessionalService } from '../../professional/professional.service';
