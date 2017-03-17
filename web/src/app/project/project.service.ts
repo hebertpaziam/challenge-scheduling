@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 
-import { Project } from './project';
+import { Project } from './shared/project.model';
 import { PROJECTS } from '../shared/mock';
 
-import { Professional } from '../professional/professional';
+import { Professional } from '../professional/shared/professional.model';
 import { PROFESSIONALS } from '../shared/mock';
 
-import { Customer } from '../customer/customer';
+import { Customer } from '../customer/shared/customer.model';
 import { CUSTOMERS } from '../shared/mock';
 
 import { Http, Response } from '@angular/http';
