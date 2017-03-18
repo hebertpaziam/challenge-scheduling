@@ -9,6 +9,8 @@ import { ProjectService } from '../../project/project.service';
 import { Professional } from '../../professional/shared/professional.model';
 import { ProfessionalService } from '../../professional/professional.service';
 
+import { BOOKINGS } from './../../shared/mock';
+
 const SERVICE_URL: string = '/api/booking';
 
 @Injectable()
@@ -21,7 +23,7 @@ export class BookingService {
     getBookingList(): Promise<Booking[]> {
         let url: string = `${SERVICE_URL}/list`;
 
-        return this._httpService.get(url)
+        return this._httpService.get(JSON.stringify(BOOKINGS))
             .toPromise()
             .then((response: Response) => {
 
@@ -33,7 +35,7 @@ export class BookingService {
     getBooking(id: number): Promise<Booking> {
         let url: string = `${SERVICE_URL}/${id}`;
 
-        return this._httpService.get(url)
+        return this._httpService.get(JSON.stringify(BOOKINGS[id]))
             .toPromise()
             .then((response: Response) => {
 

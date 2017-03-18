@@ -1,3 +1,4 @@
+import { AuthGuard } from './auth/auth.guard';
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -6,12 +7,13 @@ import { BookingModule } from './booking/booking.module';
 
 const ROUTES: Routes = [{
     path: '',
-    canActivateChild: [Promise.resolve(true)],
+    component:AppComponent,
+    canActivateChild: [AuthGuard],
     children: [
         {
-            path: 'booking',
+            path: 'bookings',
             loadChildren: './booking/booking.module#BookingModule',
-            canLoad: [Promise.resolve(true)],
+            canLoad: [AuthGuard],
         }
     ]
 }

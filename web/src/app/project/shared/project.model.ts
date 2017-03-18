@@ -1,6 +1,6 @@
 import { IProject } from './project.interface';
-import { Professional } from '../professional/professional';
-import { Customer } from '../customer/customer';
+import { Professional } from '../../professional/shared/professional.model';
+import { Customer } from '../../customer/shared/customer.model';
 
 export class Project implements IProject {
     projectId: number;
