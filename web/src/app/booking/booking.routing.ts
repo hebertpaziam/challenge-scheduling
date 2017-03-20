@@ -9,11 +9,10 @@ import { AuthGuard } from './../auth/auth.guard';
 
 const ROUTES: Routes = [{
     path: '',
-    component: BookingComponent,
     canActivateChild: [AuthGuard],
     children: [
         {
-            path: '',
+            path: 'bookings',
             component: BookingListComponent,
             canLoad: [AuthGuard],
         },

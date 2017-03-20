@@ -1,9 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
 
 @Component({
     moduleId: module.id,
-    selector: 'ava-app' ,
+    selector: 'ava-app',
     templateUrl: 'app.component.html'
 })
 
-export class AppComponent{ }
+export class AppComponent implements OnInit {
+
+    constructor(private router:Router){}
+
+    ngOnInit() {
+        this.router.navigate(['home']);
+    }
+}
