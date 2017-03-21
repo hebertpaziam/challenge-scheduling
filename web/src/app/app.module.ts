@@ -8,8 +8,8 @@ import { appRouting } from "./app.routing";
 import { AuthGuard } from './shared/auth/auth.guard';
 import { AuthService } from './shared/auth/auth.service';
 
+import { BookingModule } from "./bookings/booking.module";
 import { CustomerModule } from './customers/customer.module';
-import { BookingModule } from './bookings/booking.module';
 import { ProjectModule } from './projects/project.module';
 import { ProfessionalModule } from './professionals/professional.module';
 import { RoleModule } from './roles/role.module';
