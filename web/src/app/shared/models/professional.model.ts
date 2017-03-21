@@ -3,7 +3,7 @@ import { Role } from './role.model';
 export class Professional {
     id: number;
     pid: number;
-    eid: number;
+    eid: string;
     name: string;
     email: string;
     role: Role;

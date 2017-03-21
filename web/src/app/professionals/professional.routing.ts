@@ -5,7 +5,7 @@ import { ProfessionalComponent } from './professional.component';
 import { ProfessionalListComponent } from './professional-list/professional-list.component';
 import { ProfessionalDetailsComponent } from './professional-details/professional-details.component';
 
-import { AuthGuard } from './../auth/auth.guard';
+import { AuthGuard } from './../shared/auth/auth.guard';
 
 const ROUTES: Routes = [{
     path: '',

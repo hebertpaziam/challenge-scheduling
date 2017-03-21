@@ -5,8 +5,8 @@ export class Project {
     id: number;
     name: string;
     customer: Customer;
-    dtInitial: Date;
-    dtFinal: Date;
+    startDate: Date;
+    endDate: Date;
     wbs: string;
     professional: Professional;
     deleted: boolean;

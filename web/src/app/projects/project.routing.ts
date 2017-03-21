@@ -5,7 +5,7 @@ import { ProjectComponent } from './project.component';
 import { ProjectListComponent } from './project-list/project-list.component';
 import { ProjectDetailsComponent } from './project-details/project-details.component';
 
-import { AuthGuard } from './../auth/auth.guard';
+import { AuthGuard } from './../shared/auth/auth.guard';
 
 const ROUTES: Routes = [{
     path: '',

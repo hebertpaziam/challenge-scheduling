@@ -5,7 +5,7 @@ import { BookingComponent } from './booking.component';
 import { BookingListComponent } from './booking-list/booking-list.component';
 import { BookingDetailsComponent } from './booking-details/booking-details.component';
 
-import { AuthGuard } from './../auth/auth.guard';
+import { AuthGuard } from './../shared/auth/auth.guard';
 
 const ROUTES: Routes = [{
     path: '',

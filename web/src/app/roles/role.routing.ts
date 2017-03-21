@@ -5,7 +5,7 @@ import { RoleComponent } from './role.component';
 import { RoleListComponent } from './role-list/role-list.component';
 import { RoleDetailsComponent } from './role-details/role-details.component';
 
-import { AuthGuard } from './../auth/auth.guard';
+import { AuthGuard } from './../shared/auth/auth.guard';
 
 const ROUTES: Routes = [{
     path: '',

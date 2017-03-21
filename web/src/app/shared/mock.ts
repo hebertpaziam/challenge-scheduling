@@ -1,32 +1,232 @@
-import { Project } from './../project/shared/project.model';
-import { Booking } from '../booking/shared/booking.model';
-import { Customer } from '../customer/shared/customer.model';
-import { Professional } from '../professional/shared/professional.model';
-import { Role } from '../role/shared/role.model';
+import { Project } from './models/project.model';
+import { Booking } from './models/booking.model';
+import { Customer } from './models/customer.model';
+import { Professional } from './models/professional.model';
+import { Role } from './models/role.model';
 
 export const BOOKINGS: Booking[] = [
     {
         id: 1,
         startDate: new Date("2017-03-11T02:00:00.000Z"),
-        endDate: new Date("2017-05-17T02:00:00.000Z"),
+        endDate: new Date("2017-12-17T02:00:00.000Z"),
         percentual: 30,
-        projectId: 1,
-        professionalId: 2,
-        project: null,
-        professional: null,
-        deleted: false
+        deleted: false,
+        project: {
+            id: 1,
+            name: "Projeto 1",
+            startDate: new Date("2017-03-11T02:00:00.000Z"),
+            endDate: new Date("2017-03-11T02:00:00.000Z"),
+            wbs: "WBSTESTE",
+            deleted: false,
+            professional: {
+                id: 1,
+                pid: 1406,
+                eid: "thalita.santos",
+                name: "Thalita",
+                email: "thalita@avanade.com",
+                phone: "17 1234-5678",
+                deleted: false,
+                role: {
+                    id: 1,
+                    name: "Associate Software Engineer",
+                    brc: "A0022",
+                    description: "Cargo mais baixo da Avanade",
+                    level: 12,
+                    deleted: false
+                }
+            },
+            customer: {
+                id: 1,
+                name: "customer 1",
+                contact: "11 5555-1111",
+                email: "customer1@avanade.com",
+                cnpj: null,
+                deleted: false,
+                sponsor: {
+                    id: 1,
+                    pid: 1406,
+                    eid: "thalita.santos",
+                    name: "Thalita",
+                    email: "thalita@avanade.com",
+                    phone: "17 1234-5678",
+                    deleted: false,
+                    role: {
+                        id: 1,
+                        name: "Associate Software Engineer",
+                        brc: "A0022",
+                        description: "Cargo mais baixo da Avanade",
+                        level: 12,
+                        deleted: false
+                    }
+                }
+            }
+        },
+        professional: {
+            id: 1,
+            pid: 1406,
+            eid: "thalita.santos",
+            name: "Thalita",
+            email: "thalita@avanade.com",
+            phone: "17 1234-5678",
+            deleted: false,
+            role: {
+                id: 1,
+                name: "Associate Software Engineer",
+                brc: "A0022",
+                description: "Cargo mais baixo da Avanade",
+                level: 12,
+                deleted: false
+            }
+        }
     },
     {
         id: 2,
-        startDate: new Date("2017-01-02T02:00:00.000Z"),
-        endDate: new Date("2017-12-30T02:00:00.000Z"),
-        percentual: 50,
-        projectId: 2,
-        professionalId: 3,
-        project: null,
-        professional: null,
-        deleted: false
-    }
+        startDate: new Date("2017-03-11T02:00:00.000Z"),
+        endDate: new Date("2017-12-17T02:00:00.000Z"),
+        percentual: 35,
+        deleted: false,
+        project: {
+            id: 2,
+            name: "Projeto 2",
+            startDate: new Date("2017-03-11T02:00:00.000Z"),
+            endDate: new Date("2017-03-11T02:00:00.000Z"),
+            wbs: "WBSTESTE",
+            deleted: false,
+            professional: {
+                id: 2,
+                pid: 1132,
+                eid: "victor.lima",
+                name: "Victor",
+                email: "victor@avanade.com",
+                phone: "14 9876-5432",
+                deleted: false,
+                role: {
+                    id: 2,
+                    name: "Associate Software Engineer",
+                    brc: "A0022",
+                    description: "Cargo mais baixo da Avanade",
+                    level: 9,
+                    deleted: false
+                }
+            },
+            customer: {
+                id: 2,
+                name: "customer 2",
+                contact: "11 5555-2222",
+                email: "customer2@avanade.com",
+                cnpj: null,
+                deleted: false,
+                sponsor: {
+                    id: 2,
+                    pid: 1132,
+                    eid: "victor.lima",
+                    name: "Victor",
+                    email: "victor@avanade.com",
+                    phone: "14 9876-5432",
+                    deleted: false,
+                    role: {
+                        id: 2,
+                        name: "Associate Software Engineer",
+                        brc: "A0022",
+                        description: "Cargo mais baixo da Avanade",
+                        level: 9,
+                        deleted: false
+                    }
+                }
+            }
+        },
+        professional: {
+            id: 2,
+            pid: 1132,
+            eid: "victor.lima",
+            name: "Victor",
+            email: "victor@avanade.com",
+            phone: "14 9876-5432",
+            deleted: false,
+            role: {
+                id: 2,
+                name: "Associate Software Engineer",
+                brc: "A0022",
+                description: "Cargo mais baixo da Avanade",
+                level: 9,
+                deleted: false
+            }
+        }
+    },
+    {
+        id: 3,
+        startDate: new Date("2017-03-11T02:00:00.000Z"),
+        endDate: new Date("2017-12-17T02:00:00.000Z"),
+        percentual: 40,
+        deleted: false,
+        project: {
+            id: 3,
+            name: "Projeto 3",
+            startDate: new Date("2017-03-11T02:00:00.000Z"),
+            endDate: new Date("2017-03-11T02:00:00.000Z"),
+            wbs: "WBSTESTE",
+            deleted: false,
+            professional: {
+                id: 3,
+                pid: 3464,
+                eid: "thais.duarte",
+                name: "Thais",
+                email: "thais@avanade.com",
+                phone: "19 1234-5678",
+                deleted: false,
+                role: {
+                    id: 3,
+                    name: "Associate Software Engineer",
+                    brc: "A0022",
+                    description: "Cargo mais baixo da Avanade",
+                    level: 10,
+                    deleted: false
+                }
+            },
+            customer: {
+                id: 3,
+                name: "customer 3",
+                contact: "11 5555-3333",
+                email: "custome31@avanade.com",
+                cnpj: null,
+                deleted: false,
+                sponsor: {
+                    id: 3,
+                    pid: 3464,
+                    eid: "thais.duarte",
+                    name: "Thais",
+                    email: "thais@avanade.com",
+                    phone: "19 1234-5678",
+                    deleted: false,
+                    role: {
+                        id: 3,
+                        name: "Associate Software Engineer",
+                        brc: "A0022",
+                        description: "Cargo mais baixo da Avanade",
+                        level: 10,
+                        deleted: false
+                    }
+                }
+            }
+        },
+        professional: {
+            id: 3,
+            pid: 3464,
+            eid: "thais.duarte",
+            name: "Thais",
+            email: "thais@avanade.com",
+            phone: "19 1234-5678",
+            deleted: false,
+            role: {
+                id: 3,
+                name: "Associate Software Engineer",
+                brc: "A0022",
+                description: "Cargo mais baixo da Avanade",
+                level: 10,
+                deleted: false
+            }
+        }
+    },
 ];
 
 export const CUSTOMERS: Customer[] = [
@@ -35,116 +235,288 @@ export const CUSTOMERS: Customer[] = [
         name: "customer 1",
         contact: "11 5555-1111",
         email: "customer1@avanade.com",
-        sponsor: 2,
-        deleted: false
+        cnpj: null,
+        deleted: false,
+        sponsor: {
+            id: 1,
+            pid: 1406,
+            eid: "thalita.santos",
+            name: "Thalita",
+            email: "thalita@avanade.com",
+            phone: "17 1234-5678",
+            deleted: false,
+            role: {
+                id: 1,
+                name: "Associate Software Engineer",
+                brc: "A0022",
+                description: "Cargo mais baixo da Avanade",
+                level: 12,
+                deleted: false
+            }
+        }
     },
     {
         id: 2,
         name: "customer 2",
         contact: "11 5555-2222",
         email: "customer2@avanade.com",
-        sponsor: 3,
-        deleted: false
+        cnpj: null,
+        deleted: false,
+        sponsor: {
+            id: 2,
+            pid: 1132,
+            eid: "victor.lima",
+            name: "Victor",
+            email: "victor@avanade.com",
+            phone: "14 9876-5432",
+            deleted: false,
+            role: {
+                id: 2,
+                name: "Associate Software Engineer",
+                brc: "A0022",
+                description: "Cargo mais baixo da Avanade",
+                level: 9,
+                deleted: false
+            }
+        }
     },
     {
         id: 3,
         name: "customer 3",
         contact: "11 5555-3333",
         email: "custome31@avanade.com",
-        sponsor: 1,
-        deleted: false
+        cnpj: null,
+        deleted: false,
+        sponsor: {
+            id: 3,
+            pid: 3464,
+            eid: "thais.duarte",
+            name: "Thais",
+            email: "thais@avanade.com",
+            phone: "19 1234-5678",
+            deleted: false,
+            role: {
+                id: 3,
+                name: "Associate Software Engineer",
+                brc: "A0022",
+                description: "Cargo mais baixo da Avanade",
+                level: 10,
+                deleted: false
+            }
+        }
     }
 ];
 
 export const PROFESSIONALS: Professional[] = [
     {
-        professionalId: 1,
+        id: 1,
         pid: 1406,
-        eid: 157,
+        eid: "thalita.santos",
         name: "Thalita",
         email: "thalita@avanade.com",
-        roleId: 1,
         phone: "17 1234-5678",
-        role: null,
-        deleted: false
+        deleted: false,
+        role: {
+            id: 1,
+            name: "Associate Software Engineer",
+            brc: "A0022",
+            description: "Cargo mais baixo da Avanade",
+            level: 12,
+            deleted: false
+        }
     },
     {
-        professionalId: 2,
+        id: 2,
         pid: 1132,
-        eid: 123,
+        eid: "victor.lima",
         name: "Victor",
         email: "victor@avanade.com",
-        roleId: 2,
         phone: "14 9876-5432",
-        role: null,
-        deleted: false
+        deleted: false,
+        role: {
+            id: 2,
+            name: "Associate Software Engineer",
+            brc: "A0022",
+            description: "Cargo mais baixo da Avanade",
+            level: 9,
+            deleted: false
+        }
     },
     {
-        professionalId: 3,
+        id: 3,
         pid: 3464,
-        eid: 189,
+        eid: "thais.duarte",
         name: "Thais",
         email: "thais@avanade.com",
-        roleId: 3,
         phone: "19 1234-5678",
-        role: null,
-        deleted: false
-    },
-    {
-        professionalId: 4,
-        pid: 3244,
-        eid: 163,
-        name: "Paloma",
-        email: "paloma@avanade.com",
-        roleId: 4,
-        phone: "12 9876-5432",
-        role: null,
-        deleted: false
+        deleted: false,
+        role: {
+            id: 3,
+            name: "Associate Software Engineer",
+            brc: "A0022",
+            description: "Cargo mais baixo da Avanade",
+            level: 10,
+            deleted: false
+        }
     }
 ];
 
 export const PROJECTS: Project[] = [
     {
-        projectId: 1,
+        id: 1,
         name: "Projeto 1",
-        customerId: 1,
-        dtInitial: new Date(),
-        dtFinal: new Date(),
+        startDate: new Date("2017-03-11T02:00:00.000Z"),
+        endDate: new Date("2017-03-11T02:00:00.000Z"),
         wbs: "WBSTESTE",
-        sponsorId: 1,
-        professional:null,
-        customer:null,
-        deleted: false
+        deleted: false,
+        professional: {
+            id: 1,
+            pid: 1406,
+            eid: "thalita.santos",
+            name: "Thalita",
+            email: "thalita@avanade.com",
+            phone: "17 1234-5678",
+            deleted: false,
+            role: {
+                id: 1,
+                name: "Associate Software Engineer",
+                brc: "A0022",
+                description: "Cargo mais baixo da Avanade",
+                level: 12,
+                deleted: false
+            }
+        },
+        customer: {
+            id: 1,
+            name: "customer 1",
+            contact: "11 5555-1111",
+            email: "customer1@avanade.com",
+            cnpj: null,
+            deleted: false,
+            sponsor: {
+                id: 1,
+                pid: 1406,
+                eid: "thalita.santos",
+                name: "Thalita",
+                email: "thalita@avanade.com",
+                phone: "17 1234-5678",
+                deleted: false,
+                role: {
+                    id: 1,
+                    name: "Associate Software Engineer",
+                    brc: "A0022",
+                    description: "Cargo mais baixo da Avanade",
+                    level: 12,
+                    deleted: false
+                }
+            }
+        }
     },
     {
-        projectId: 2,
+        id: 2,
         name: "Projeto 2",
-        customerId: 1,
-        dtInitial: new Date(),
-        dtFinal: new Date(),
+        startDate: new Date("2017-03-11T02:00:00.000Z"),
+        endDate: new Date("2017-03-11T02:00:00.000Z"),
         wbs: "WBSTESTE",
-        sponsorId: 1,
-        professional:null,
-        customer:null,
-        deleted: false
+        deleted: false,
+        professional: {
+            id: 2,
+            pid: 1132,
+            eid: "victor.lima",
+            name: "Victor",
+            email: "victor@avanade.com",
+            phone: "14 9876-5432",
+            deleted: false,
+            role: {
+                id: 2,
+                name: "Associate Software Engineer",
+                brc: "A0022",
+                description: "Cargo mais baixo da Avanade",
+                level: 9,
+                deleted: false
+            }
+        },
+        customer: {
+            id: 2,
+            name: "customer 2",
+            contact: "11 5555-2222",
+            email: "customer2@avanade.com",
+            cnpj: null,
+            deleted: false,
+            sponsor: {
+                id: 2,
+                pid: 1132,
+                eid: "victor.lima",
+                name: "Victor",
+                email: "victor@avanade.com",
+                phone: "14 9876-5432",
+                deleted: false,
+                role: {
+                    id: 2,
+                    name: "Associate Software Engineer",
+                    brc: "A0022",
+                    description: "Cargo mais baixo da Avanade",
+                    level: 9,
+                    deleted: false
+                }
+            }
+        }
     },
     {
-        projectId: 3,
+        id: 3,
         name: "Projeto 3",
-        customerId: 1,
-        dtInitial: new Date(),
-        dtFinal: new Date(),
+        startDate: new Date("2017-03-11T02:00:00.000Z"),
+        endDate: new Date("2017-03-11T02:00:00.000Z"),
         wbs: "WBSTESTE",
-        sponsorId: 1,
-        professional:null,
-        customer:null,
-        deleted: false
+        deleted: false,
+        professional: {
+            id: 3,
+            pid: 3464,
+            eid: "thais.duarte",
+            name: "Thais",
+            email: "thais@avanade.com",
+            phone: "19 1234-5678",
+            deleted: false,
+            role: {
+                id: 3,
+                name: "Associate Software Engineer",
+                brc: "A0022",
+                description: "Cargo mais baixo da Avanade",
+                level: 10,
+                deleted: false
+            }
+        },
+        customer: {
+            id: 3,
+            name: "customer 3",
+            contact: "11 5555-3333",
+            email: "custome31@avanade.com",
+            cnpj: null,
+            deleted: false,
+            sponsor: {
+                id: 3,
+                pid: 3464,
+                eid: "thais.duarte",
+                name: "Thais",
+                email: "thais@avanade.com",
+                phone: "19 1234-5678",
+                deleted: false,
+                role: {
+                    id: 3,
+                    name: "Associate Software Engineer",
+                    brc: "A0022",
+                    description: "Cargo mais baixo da Avanade",
+                    level: 10,
+                    deleted: false
+                }
+            }
+        }
     }
 ];
 
 export const ROLES: Role[] = [
     {
-        id: 120,
+        id: 1,
         name: "Associate Software Engineer",
         brc: "A0022",
         description: "Cargo mais baixo da Avanade",
@@ -152,7 +524,7 @@ export const ROLES: Role[] = [
         deleted: false
     },
     {
-        id: 121,
+        id: 2,
         name: "Associate Software Engineer",
         brc: "A0022",
         description: "Cargo mais baixo da Avanade",
@@ -160,7 +532,7 @@ export const ROLES: Role[] = [
         deleted: false
     },
     {
-        id: 122,
+        id: 3,
         name: "Associate Software Engineer",
         brc: "A0022",
         description: "Cargo mais baixo da Avanade",
