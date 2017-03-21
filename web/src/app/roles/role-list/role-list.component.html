@@ -1,0 +1,25 @@
+<ava-hdr-app [pageName]="'Cargos'" [icon]="'glyphicon glyphicon-user'"></ava-hdr-app>
+<div class="page-content">
+    <table class="table table-borded table-striped table-hover table-responsive">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Contato</th>
+                <th>E-mail</th>
+                <th>Responsavel</th>
+                <th>Detalhes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let role of roles">
+                <td>{{ role.id }}</td>
+                <td>{{ role.name}}</td>
+                <td>{{ role.contact }}</td>
+                <td>{{ role.email }}</td>
+                <td>{{ getSponsorName(role) }}</td>
+                <td><span class="glyphicon glyphicon-folder-open" [routerLink]="['/roles', 'details', role.id]"></span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

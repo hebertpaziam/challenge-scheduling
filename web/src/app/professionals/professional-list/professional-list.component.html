@@ -1,0 +1,25 @@
+<ava-hdr-app [pageName]="'Profissionais'" [icon]="'glyphicon glyphicon-user'"></ava-hdr-app>
+<div class="page-content">
+    <table class="table table-borded table-striped table-hover table-responsive">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Contato</th>
+                <th>E-mail</th>
+                <th>Responsavel</th>
+                <th>Detalhes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let professional of professionals">
+                <td>{{ professional.id }}</td>
+                <td>{{ professional.name}}</td>
+                <td>{{ professional.contact }}</td>
+                <td>{{ professional.email }}</td>
+                <td>{{ getSponsorName(professional) }}</td>
+                <td><span class="glyphicon glyphicon-folder-open" [routerLink]="['/professionals', 'details', professional.id]"></span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
