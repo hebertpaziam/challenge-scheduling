@@ -35,9 +35,6 @@ export class ProjectDetailsComponent implements OnInit {
         });
 
         this._projectService.getProjectById(this.project).then((project: Project) => { this.project = project }).catch((error: Error) => { throw error });
-        this._professionalService.getProfessionalList().then((sponsorsList: Professional[]) => this.sponsors = sponsorsList).catch((error: Error) => { throw error });
-    }
-    onCreate() {
         this.action = "new"
         this.project = Object.assign({}, new Project());
     }
