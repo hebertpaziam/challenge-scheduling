@@ -1,21 +1,20 @@
-import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { SharedModule } from '../shared/shared.module';
 
-import { SharedModule } from './../shared/shared.module';
+//components
 import { CustomerComponent } from './customer.component';
+import { CustomerListComponent } from './customer-list/customer-list.component';
 import { CustomerDetailsComponent } from './customer-details/customer-details.component';
 
-import { CustomerService } from './customer.service';
-import { ProfessionalService } from './../professional/professional.service';
+//services
+import { CustomerService } from './shared/customer.service';
+import { ProfessionalService } from './../professional/shared/professional.service';
+
+//routing
+import { customerRouting } from './customer.routing';
 
 @NgModule({
-    imports: [BrowserModule, FormsModule, SharedModule,
-        RouterModule.forRoot([
-            { path: 'customers', component: CustomerComponent },
-            { path: 'customers/:action/:id', component: CustomerDetailsComponent }
-        ])],
+    imports: [SharedModule, customerRouting],
     declarations: [CustomerComponent, CustomerDetailsComponent],
     providers: [CustomerService, ProfessionalService]
 })

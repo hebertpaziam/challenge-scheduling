@@ -1,48 +1,14 @@
-import { Component, OnInit, Input } from '@angular/core';
-
-import { Professional } from './shared/professional.model';
-import { ProfessionalService } from './professional.service';
-
-import { Role } from '../role/shared/role.model'
-import { RoleService } from '../role/role.service';
-
-
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-    moduleId: module.id,
-    selector: 'ava-pro-app',
-    templateUrl: './professional.component.html'
+  selector: 'ava-professional',
+  template: '<router-outlet></router-outlet>'
 })
-export class ProfessionalComponent {
-    constructor (private _professionalService: ProfessionalService, private _roleService: RoleService){}
+export class ProfessionalComponent implements OnInit {
 
-    professionals: Professional[];
-    professional: Professional;
-    roles: Role[];
+  constructor() { }
 
-    ngOnInit(){
-        this._professionalService.getProfessionalList()
-        .then((getProfessionals: Professional[]) => {
-            this.professionals = getProfessionals;
-            return  this._roleService.getRoleList();
-        })
-        .then((getRoles: Role[]) => {
-            this.roles = getRoles;
-        });
-        //this.roles = this._roleService.getRoleList();
-    }
+  ngOnInit() {
+  }
 
-    getProfessionalDetails (professional:Professional):Professional {
-        /*for(let role of this.roles){
-            if(professional.roleId === role.id) {
-                professional.role = role;
-            }
-        }*/
-        return professional;
-    }
-
-    profissionalDetails (professional:Professional) { 
-        this.professional = this.getProfessionalDetails(professional);
-    }
 }
-

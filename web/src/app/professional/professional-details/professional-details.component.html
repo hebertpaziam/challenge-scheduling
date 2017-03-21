@@ -1,42 +1,47 @@
-<div class="page-content">
-    <form name="professionalForm" *ngIf="professional">
+<form #form="ngForm" *ngIf="professional">
+    <fieldset [disabled]="action === 'details'">
         <div class="row">
-            <div class="col-md-6">
-                <label for="">PID</label>
-                <input type="text" class="form-control" name="pidName" [(ngModel)]="professional.pid" placeholder="{{professional.pid}}">
-            </div>
-            <div class="col-md-6">
-                <label for="">EID</label>
-                <input type="text" name="eidImput" class="form-control" [(ngModel)]="professional.eid" placeholder="{{professional.eid}}">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="id">ID</label>
+                    <input type="number" class="form-control" id="id" name="id" placeholder="ID" [disabled]="professional.id" required [(ngModel)]="professional.id">
+                </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-6">
-                <label for="">Nome</label>
-                <input type="text" name="nameInput" class="form-control" [(ngModel)]="professional.name" placeholder="{{professional.name}}">
+                <div class="form-group">
+                    <label for="name">Nome</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Nome completo" required [(ngModel)]="professional.name">
+                </div>
+                <div class="form-group">
+                    <label for="contact">Contato</label>
+                    <input type="text" class="form-control" id="contact" name="contact" placeholder="Contato" required [(ngModel)]="professional.contact">
+                </div>
             </div>
             <div class="col-md-6">
-                <label for="">Email</label>
-                <input type="email" name="emailInput" class="form-control" [(ngModel)]="professional.email" placeholder="{{professional.email}}">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="email@avanade.com" required [(ngModel)]="professional.email">
+                </div>
+                <div class="form-group">
+                    <label for="sponsors">Responsavel</label>
+                    <select class="form-control" name="sponsors" required [(ngModel)]="professional.sponsor">
+                        <option [value]="sponsor.professionalId" *ngFor="let sponsor of sponsors">{{sponsor.name}}</option>
+                    </select>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-6">
-                <label for="">Telefone</label>
-                <input type="text" name="telInput" class="form-control" [(ngModel)]="professional.phone" placeholder="{{professional.phone}}">
-            </div>
-            <div class="col-md-6">
-                <label for="Cargo">Cargo</label>
-                <select name="Cargos" class="form-control">                  
-                    <option *ngFor="let role of roles" name="roleOption" value="">{{role.name}}</option>
-                </select>
+    </fieldset>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <button *ngIf="action === 'details'" type="button" class="btn btn-primary btn-outline" (click)="onCreate()">Novo</button>
+                <button *ngIf="action === 'details'" type="button" class="btn btn-primary btn-outline" (click)="onEdit()">Alterar</button>
+                <button *ngIf="action === 'edit' || action === 'new' " type="button" class="btn btn-primary btn-outline" (click)="save()">Salvar</button>
+                <button *ngIf="action === 'details'" type="button" class="btn btn-primary btn-outline" (click)="delete()">Excluir</button>
+                <button type="button" class="btn btn-default" (click)="goBack()">Voltar</button>
             </div>
         </div>
-        <!-- Button Submit -->
-        <button *ngIf="action === 'details'" type="button" class="btn btn-primary btn-outline" (click)="onCreate()">Novo</button>
-        <button *ngIf="action === 'details'" type="button" class="btn btn-primary btn-outline" (click)="onEdit()">Alterar</button>                
-        <button *ngIf="action === 'edit'" type="button" class="btn btn-primary btn-outline" (click)="onSave()">Salvar</button>
-        <button *ngIf="action === 'details'" type="button" class="btn btn-primary btn-outline" (click)="onDelete()" >Excluir</button>
-        <button type="button" class="btn btn-default" (click)="onBack()">Voltar</button>
-    </form>
-</div>
+    </div>
+</form>

@@ -1,18 +1,22 @@
 import { NgModule } from '@angular/core';
+import { SharedModule } from '../shared/shared.module';
 
-import { bookingRouting } from './booking.routing';
+//components
 import { BookingComponent } from './booking.component';
 import { BookingListComponent } from './booking-list/booking-list.component';
-import { BookingDetailComponent } from './booking-details/booking-details.component';
-import { BookingService } from './shared/booking.service';
+import { BookingDetailsComponent } from './booking-details/booking-details.component';
 
-import { PercentualFilter } from '../shared/filters/percentual';
-import { SharedModule } from '../shared/shared.module';
+//services
+import { BookingService } from './shared/booking.service';
+import { ProfessionalService } from './../professional/shared/professional.service';
+
+//routing
+import { bookingRouting } from './booking.routing';
 
 @NgModule({
     imports: [SharedModule, bookingRouting],
-    declarations: [BookingComponent, BookingDetailComponent, BookingListComponent, PercentualFilter],
-    providers: [BookingService]
+    declarations: [BookingComponent, BookingListComponent, BookingDetailsComponent],
+    providers: [BookingService, ProfessionalService]
 })
 
 export class BookingModule { }

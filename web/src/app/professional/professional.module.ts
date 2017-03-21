@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { RouterModule, Router } from '@angular/router';
+import { SharedModule } from '../shared/shared.module';
 
+//components
 import { ProfessionalComponent } from './professional.component';
-import { ProfessionalDetailComponent } from './professional-details/professional-details.component'
+import { ProfessionalListComponent } from './professional-list/professional-list.component';
+import { ProfessionalDetailsComponent } from './professional-details/professional-details.component';
 
-import { EmailHider } from '../shared/filters/EmailHider';
-import { SharedModule } from '../shared/shared.module'
-import { ProfessionalService } from './professional.service';
+//services
+import { ProfessionalService } from './shared/professional.service';
+
+//routing
+import { professionalRouting } from './professional.routing';
 
 @NgModule({
-    imports: [BrowserModule, FormsModule, SharedModule, RouterModule.forRoot([
-        {path:'professionals', component: ProfessionalComponent},
-        {path:'professional/:action/:id', component: ProfessionalDetailComponent}
-    ])],
-    declarations: [ProfessionalComponent, EmailHider, ProfessionalDetailComponent],
+    imports: [SharedModule, professionalRouting],
+    declarations: [ProfessionalComponent, ProfessionalDetailsComponent],
     providers: [ProfessionalService]
 })
+
 export class ProfessionalModule { }

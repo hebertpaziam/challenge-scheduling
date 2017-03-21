@@ -1,8 +1,8 @@
-export interface IRole{
+export interface IRole {
     id: number;
     name: string;
-    brc: string;
-    description: string;
-    level: number;
+    contact: string;
+    email: string;
+    sponsor: number;
     deleted: boolean;
 }

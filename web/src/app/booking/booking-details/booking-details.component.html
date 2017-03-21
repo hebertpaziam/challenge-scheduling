@@ -1,48 +1,47 @@
-<ava-hdr-app [pageName]="'Alocação'" [icon]="'glyphicon-calendar'"></ava-hdr-app>
-<div class="page-content">
-    <form name="bookingForm" *ngIf="booking">
-        <div class="form-group col-md-6">
-            <label for="project">Projeto</label>
-            <select class="form-control" [(ngModel)]="booking.projectId" name="project" required>
-                <option *ngFor='let project of projects' 
-                [selected]="booking.projectId == project.projectId"
-                [value]="project.projectId">{{ project.name }}</option>
-        </select>
-        </div>
-        <div class="form-group col-md-6">
-            <label for="professional">Profissional</label>
-            <select class="form-control" [(ngModel)]="booking.professionalId" name="professional" required>
-                <option *ngFor='let professional of professionals' 
-                [selected]="booking.professionalId == professional.professionalId"
-                [value]="professional.professionalId">{{ professional.name }}</option>
-        </select>
-        </div>
-        <div class="form-group col-md-6">
-            <label for="startDate">Data Início</label>
-            <input #startDateInput id="startDate" value="{{ booking.startDate | date:'yyyy-MM-dd' }}" name="startDate" placeholder="Informe a data inicial de alocação no projeto"
-                required class="form-control" type="date" (input)="startDateChanged(startDateInput.value)">
-        </div>
-        <div class="form-group col-md-6">
-            <label for="endDate">Data Fim</label>
-            <input #endDateInput id="endDate" value="{{ booking.endDate | date:'yyyy-MM-dd' }}" name="endDate" placeholder="Informe a data fim de alocação no projeto"
-                required class="form-control" type="date" (input)="endDateChanged(endDateInput.value)">
-        </div>
-        <div class="form-group col-md-6">
-            <label for="bookingPercentual">Percentual Alocação</label>
-            <div class="input-group">
-                <input id="bookingPercentual" [(ngModel)]="booking.percentual" name="bookingPercentual" class="form-control" type="number"
-                    min="0" max="100" step="10" value="{{ booking.percentual }}">
-                <div class="input-group-addon">%</div>
+<form #form="ngForm" *ngIf="booking">
+    <fieldset [disabled]="action === 'details'">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="id">ID</label>
+                    <input type="number" class="form-control" id="id" name="id" placeholder="ID" [disabled]="booking.id" required [(ngModel)]="booking.id">
+                </div>
             </div>
         </div>
-        <div class="form-group">
-            <div class="col-sm-10">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="name">Nome</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Nome completo" required [(ngModel)]="booking.name">
+                </div>
+                <div class="form-group">
+                    <label for="contact">Contato</label>
+                    <input type="text" class="form-control" id="contact" name="contact" placeholder="Contato" required [(ngModel)]="booking.contact">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="email@avanade.com" required [(ngModel)]="booking.email">
+                </div>
+                <div class="form-group">
+                    <label for="sponsors">Responsavel</label>
+                    <select class="form-control" name="sponsors" required [(ngModel)]="booking.sponsor">
+                        <option [value]="sponsor.professionalId" *ngFor="let sponsor of sponsors">{{sponsor.name}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
                 <button *ngIf="action === 'details'" type="button" class="btn btn-primary btn-outline" (click)="onCreate()">Novo</button>
-                <button *ngIf="action === 'details'" type="button" class="btn btn-primary btn-outline" (click)="onEdit()">Alterar</button>                
-                <button *ngIf="action != 'details'" type="button" class="btn btn-primary btn-outline" (click)="onSave()">Salvar</button>
-                <button *ngIf="action === 'details'" type="button" class="btn btn-primary btn-outline" >Excluir</button>
-                <button type="button" class="btn btn-default" (click)="onBack()">Voltar</button>
+                <button *ngIf="action === 'details'" type="button" class="btn btn-primary btn-outline" (click)="onEdit()">Alterar</button>
+                <button *ngIf="action === 'edit' || action === 'new' " type="button" class="btn btn-primary btn-outline" (click)="save()">Salvar</button>
+                <button *ngIf="action === 'details'" type="button" class="btn btn-primary btn-outline" (click)="delete()">Excluir</button>
+                <button type="button" class="btn btn-default" (click)="goBack()">Voltar</button>
             </div>
         </div>
-    </form>
-</div>
+    </div>
+</form>

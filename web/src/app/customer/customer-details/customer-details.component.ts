@@ -5,8 +5,8 @@ import { Location } from '@angular/common';
 import { Customer } from '../shared/customer.model';
 import { Professional } from '../../professional/shared/professional.model';
 
-import { CustomerService } from '../customer.service';
-import { ProfessionalService } from '../../professional/professional.service';
+import { CustomerService } from '../shared/customer.service';
+import { ProfessionalService } from '../../professional/shared/professional.service';
 
 @Component({
     moduleId: module.id,

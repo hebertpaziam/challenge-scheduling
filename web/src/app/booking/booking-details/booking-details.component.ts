@@ -1,107 +1,62 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { Booking } from '../shared/booking.model';
-import { BookingService } from '../shared/booking.service';
-
 import { Professional } from '../../professional/shared/professional.model';
-import { ProfessionalService } from '../../professional/professional.service';
 
-import { Project } from '../../project/shared/project.model';
-import { ProjectService } from '../../project/project.service';
+import { BookingService } from '../shared/booking.service';
+import { ProfessionalService } from '../../professional/shared/professional.service';
 
 @Component({
     moduleId: module.id,
     templateUrl: './booking-details.component.html'
 })
-export class BookingDetailComponent implements OnInit {
-    constructor(private _bookingService: BookingService,
-        private _professionalService: ProfessionalService,
-        private _projectService: ProjectService,
-        private _router: ActivatedRoute,
-        private _location: Location) { }
+export class BookingDetailsComponent implements OnInit {
 
-    booking: Booking;
-    professionals: Professional[];
-    projects: Project[];
-    action: string;
-    id: number;
+    public action: string;
+
+    private booking: Booking = new Booking();
+    private sponsors: Professional[] = [];
+
+    constructor(
+        private _route: ActivatedRoute,
+        private _bookingService: BookingService,
+        private _professionalService: ProfessionalService,
+        private _router: Router,
+        private _location: Location
+    ) { }
 
     ngOnInit() {
-        this._router.params.subscribe((params: Params) => {
-            this.id = +params['id'];
+
+        this._route.params.subscribe((params: Params) => {
+            this.booking.id = +params['id'];
             this.action = params['action'];
-            console.log(this.action);
         });
 
-        this._professionalService.getProfessionalList()
-            .then((professionals: Professional[]) => {
-                this.professionals = professionals;
-                return this._projectService.getListProject();
-            })
-            .then((projects: Project[]) => {
-                this.projects = projects;
-                return this._bookingService.getBooking(this.id)
-            })
-            .then((booking: Booking) => {
-                this.booking = booking;
-
-                this.booking.project = this.projects.find(p => p.projectId === booking.projectId);
-                this.booking.professional = this.professionals.find(p => p.professionalId === booking.professionalId);
-            });
+        this._bookingService.getBookingById(this.booking).then((booking: Booking) => { this.booking = booking }).catch((error: Error) => { throw error });
+        this._professionalService.getProfessionalList().then((sponsorsList: Professional[]) => this.sponsors = sponsorsList).catch((error: Error) => { throw error });
     }
-
-    getProjectDetails(booking: Booking) {
-        booking.project = this.projects.find(project => project.projectId == booking.projectId);
-    }
-
-    getProfessionalDetails(booking: Booking) {
-        booking.professional = this.professionals.find(professional => professional.pid == booking.professionalId);
-    }
-
-    getBookingsDetails(booking: Booking) {
-        this.booking = booking;
-
-        this.booking.project = this.projects.find(p => p.projectId === booking.projectId);
-        this.booking.professional = this.professionals.find(p => p.professionalId === booking.professionalId);
-    }
-
-    startDateChanged(value: Date): void {
-        this.booking.startDate = value;
-    }
-
-    endDateChanged(value: Date): void {
-        this.booking.endDate = value;
-    }
-
-    onEdit() {
-        this.action = 'edit';
-    }
-
     onCreate() {
-        this.action = 'new';
-        this.booking = new Booking();
+        this.action = "new"
+        this.booking = Object.assign({}, new Booking());
+    }
+    onEdit() {
+        this.action = "edit"
     }
 
-    onBack() {
+    save() {
+        if (this.action === "edit") this._bookingService.updateBooking(this.booking).then(() => { this._router.navigate(['/bookings']) })
+        else if (this.action === "new") this._bookingService.createBooking(this.booking).then(() => { this._router.navigate(['/bookings']) })
+        else console.log("Action Invalid!!");
+    }
+
+    delete() {
+        this._bookingService.deleteBooking(this.booking).then(() => { this._router.navigate(['/bookings']) })
+    }
+
+    goBack() {
         this._location.back();
     }
 
-    onSave() {
-        if (this.action === 'new')
-            this._bookingService.createBooking(this.booking)
-                .then((bookingSaved: Booking) => {
-                    this.booking = bookingSaved;
-                    this.ngOnInit();
-                    this.action = 'details';
-                });
-        else
-            this._bookingService.editBooking(this.booking)
-                .then((bookingSaved: Booking) => {
-                    this.booking = bookingSaved;
-                    this.ngOnInit();
-                    this.action = 'details';
-                });
-    }
 }

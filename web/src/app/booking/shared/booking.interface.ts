@@ -1,8 +1,8 @@
 export interface IBooking {
     id: number;
-    startDate: Date;
-    endDate: Date;
-    percentual: number;
-    projectId: number;
-    professionalId: number;
+    name: string;
+    contact: string;
+    email: string;
+    sponsor: number;
+    deleted: boolean;
 }

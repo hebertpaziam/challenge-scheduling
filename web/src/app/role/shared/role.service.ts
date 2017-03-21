@@ -1,42 +1,42 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 
-import { Booking } from './booking.model'
+import { Role } from './role.model'
 
 
 @Injectable()
-export class BookingService {
+export class RoleService {
 
-    private url: string = '/api/booking'
+    private url: string = '/api/role'
 
     constructor(private http: Http) { }
 
-    createBooking(booking: Booking): Promise<Booking> {
-        return this.http.post(`${this.url}/post`, JSON.stringify(booking)).toPromise()
+    createRole(role: Role): Promise<Role> {
+        return this.http.post(`${this.url}/post`, JSON.stringify(role)).toPromise()
             .then((res: Response) => this.extractData(res))
             .catch((error: Error) => this.errorHandling(error))
     }
 
-    getBookingById(booking: Booking): Promise<Booking> {
-        return this.http.get(`${this.url}/${booking.id}`).toPromise()
+    getRoleById(role: Role): Promise<Role> {
+        return this.http.get(`${this.url}/${role.id}`).toPromise()
             .then((res: Response) => this.extractData(res))
             .catch((error: Error) => this.errorHandling(error))
     }
 
-    getBookings(): Promise<Booking[]> {
+    getRoles(): Promise<Role[]> {
         return this.http.get(`${this.url}/list`).toPromise()
             .then((res: Response) => )
             .catch((error: Error) => this.errorHandling(error))
     }
 
-    updateBooking(booking: Booking): Promise<Booking> {
-        return this.http.put(`${this.url}/${booking.id}`, JSON.stringify(booking)).toPromise()
+    updateRole(role: Role): Promise<Role> {
+        return this.http.put(`${this.url}/${role.id}`, JSON.stringify(role)).toPromise()
             .then((res: Response) => this.extractData(res))
             .catch((error: Error) => this.errorHandling(error))
     }
 
-    deleteBooking(booking: Booking): Promise<boolean> {
-        return this.http.delete(`${this.url}/${booking.id}`).toPromise()
+    deleteRole(role: Role): Promise<boolean> {
+        return this.http.delete(`${this.url}/${role.id}`).toPromise()
             .then((res: Response) => this.extractData(res))
             .catch((error: Error) => this.errorHandling(error));
     }

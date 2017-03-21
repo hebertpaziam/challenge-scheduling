@@ -1,98 +1,62 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { Project } from '../shared/project.model';
-import { ProjectService } from '../project.service';
-
 import { Professional } from '../../professional/shared/professional.model';
-import { ProfessionalService } from '../../professional/professional.service';
 
-import { Customer } from '../../customer/shared/customer.model';
-import { CustomerService } from '../../customer/customer.service';
+import { ProjectService } from '../shared/project.service';
+import { ProfessionalService } from '../../professional/shared/professional.service';
 
 @Component({
     moduleId: module.id,
     templateUrl: './project-details.component.html'
 })
-
 export class ProjectDetailsComponent implements OnInit {
+
+    public action: string;
+
+    private project: Project = new Project();
+    private sponsors: Professional[] = [];
+
     constructor(
-        private _router: ActivatedRoute, 
-        private _projectService: ProjectService, 
-        private _professionalService: ProfessionalService, 
-        private _customerService: CustomerService,
+        private _route: ActivatedRoute,
+        private _projectService: ProjectService,
+        private _professionalService: ProfessionalService,
+        private _router: Router,
         private _location: Location
     ) { }
-    
-    selectedProject: Project = new Project();
-    professionals: Professional[] = [];
-    customers: Customer[] = [];
-    action: string;
-    id: number;
-    
+
     ngOnInit() {
 
-        this._router.params.subscribe((params: Params) => {
-            this.id = +params['id'];
+        this._route.params.subscribe((params: Params) => {
+            this.project.id = +params['id'];
             this.action = params['action'];
-            console.log(this.action);
         });
 
-        this._professionalService.getProfessionalList()
-            .then((professionals: Professional[]) => {
-                this.professionals = professionals;
-                return this._customerService.getCustomers();
-            })
-            .then((customers: Customer[]) => {
-                this.customers = customers;
-                return this._projectService.getProjectById(this.id)
-            })
-            .then((project: Project) => {
-                this.selectedProject = project;
-
-                this.selectedProject.customer = this.customers.find(c => c.id === project.customerId);
-                this.selectedProject.professional = this.professionals.find(p => p.professionalId === project.sponsorId);
-
-                console.log(this.customers);
-            });
-
+        this._projectService.getProjectById(this.project).then((project: Project) => { this.project = project }).catch((error: Error) => { throw error });
+        this._professionalService.getProfessionalList().then((sponsorsList: Professional[]) => this.sponsors = sponsorsList).catch((error: Error) => { throw error });
     }
-    
-    projectDetails(project: Project) {
-        this.selectedProject = project;
-        this.selectedProject.professional = this.professionals.find(p => p.professionalId === project.sponsorId); 
-        this.selectedProject.customer = this.customers.find(c => c.id === project.customerId);
-    }
- 
-    getProfessional(project: Project) {
-        project.professional = this.professionals.find(p => p.professionalId === project.sponsorId);    
-    }
-
-    getCustomer(project: Project) {
-        project.customer = this.customers.find(c => c.id === project.customerId);
-    }
-    
-    onEdit() {
-        this.action = 'edit';
-    }
-
     onCreate() {
-        this.action = 'new';
+        this.action = "new"
+        this.project = Object.assign({}, new Project());
+    }
+    onEdit() {
+        this.action = "edit"
     }
 
-    backState() {
+    save() {
+        if (this.action === "edit") this._projectService.updateProject(this.project).then(() => { this._router.navigate(['/projects']) })
+        else if (this.action === "new") this._projectService.createProject(this.project).then(() => { this._router.navigate(['/projects']) })
+        else console.log("Action Invalid!!");
+    }
+
+    delete() {
+        this._projectService.deleteProject(this.project).then(() => { this._router.navigate(['/projects']) })
+    }
+
+    goBack() {
         this._location.back();
     }
 
-    onSave() {
-        if (this.action === 'new')
-            this._projectService.createProject(this.selectedProject)
-                .then((projectSave: Project) => {
-                    this.selectedProject = projectSave;
-                    this.ngOnInit();
-                    this.action = 'details';
-                });
-    }
-    
 }

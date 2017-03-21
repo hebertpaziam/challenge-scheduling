@@ -1,9 +1,8 @@
 export interface IProfessional {
-    professionalId: number;
-    pid: number;
-    eid: number;
+    id: number;
     name: string;
+    contact: string;
     email: string;
-    roleId: number;
-    phone: string;
+    sponsor: number;
+    deleted: boolean;
 }

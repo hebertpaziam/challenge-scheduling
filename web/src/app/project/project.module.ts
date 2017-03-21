@@ -1,21 +1,22 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule, Router } from '@angular/router';
+import { SharedModule } from '../shared/shared.module';
 
+//components
 import { ProjectComponent } from './project.component';
+import { ProjectListComponent } from './project-list/project-list.component';
 import { ProjectDetailsComponent } from './project-details/project-details.component';
 
-import { SharedModule } from '../shared/shared.module';
-import { FormsModule } from '@angular/forms';
-import { ProjectService } from './project.service';
+//services
+import { ProjectService } from './shared/project.service';
+import { ProfessionalService } from './../professional/shared/professional.service';
+
+//routing
+import { projectRouting } from './project.routing';
 
 @NgModule({
-    imports: [BrowserModule, SharedModule, FormsModule,   
-        RouterModule.forRoot([
-            { path: 'projects', component: ProjectComponent},
-            { path: 'projects/:action/:id', component: ProjectDetailsComponent}
-        ])],
-    declarations: [ ProjectComponent, ProjectDetailsComponent ],
-    providers: [ ProjectService ]   
+    imports: [SharedModule, projectRouting],
+    declarations: [ProjectComponent, ProjectDetailsComponent],
+    providers: [ProjectService, ProfessionalService]
 })
+
 export class ProjectModule { }

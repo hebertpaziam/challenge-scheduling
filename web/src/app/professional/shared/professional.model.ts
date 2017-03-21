@@ -1,17 +1,10 @@
 import { IProfessional } from './professional.interface';
-import { Role } from '../../role/shared/role.model'
 
 export class Professional implements IProfessional {
-    
-    professionalId: number;
-    pid: number;
-    eid: number;
+    id: number;
     name: string;
-    roleId: number;
+    contact: string;
     email: string;
-    phone: string;
-    //delete logico
+    sponsor: number;
     deleted: boolean;
-    //relacionamentos
-    role: Role;
 }
