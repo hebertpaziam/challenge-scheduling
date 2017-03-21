@@ -21,7 +21,7 @@ export class ProjectListComponent implements OnInit {
     private sponsors: Professional[];
 
     ngOnInit() {
-        this._professionalService.getProfessionalList().then((sponsorsList: Professional[]) => this.sponsors = sponsorsList).catch((error: Error) => { throw error });
+        this._professionalService.getProfessionals().then((sponsorsList: Professional[]) => this.sponsors = sponsorsList).catch((error: Error) => { throw error });
         this._projectService.getProjects().then((projectList: Project[]) => this.projects = projectList).catch((error: Error) => { throw error });
     }
 

@@ -35,7 +35,7 @@ export class BookingDetailsComponent implements OnInit {
         });
 
         this._bookingService.getBookingById(this.booking).then((booking: Booking) => { this.booking = booking }).catch((error: Error) => { throw error });
-        this._professionalService.getProfessionalList().then((sponsorsList: Professional[]) => this.sponsors = sponsorsList).catch((error: Error) => { throw error });
+        this._professionalService.getProfessionals().then((sponsorsList: Professional[]) => this.sponsors = sponsorsList).catch((error: Error) => { throw error });
     }
     onCreate() {
         this.action = "new"

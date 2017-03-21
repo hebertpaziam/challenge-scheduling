@@ -21,7 +21,7 @@ export class BookingListComponent implements OnInit {
     private sponsors: Professional[];
 
     ngOnInit() {
-        this._professionalService.getProfessionalList().then((sponsorsList: Professional[]) => this.sponsors = sponsorsList).catch((error: Error) => { throw error });
+        this._professionalService.getProfessionals().then((sponsorsList: Professional[]) => this.sponsors = sponsorsList).catch((error: Error) => { throw error });
         this._bookingService.getBookings().then((bookingList: Booking[]) => this.bookings = bookingList).catch((error: Error) => { throw error });
     }
 

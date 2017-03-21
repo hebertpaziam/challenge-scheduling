@@ -35,7 +35,7 @@ export class RoleDetailsComponent implements OnInit {
         });
 
         this._roleService.getRoleById(this.role).then((role: Role) => { this.role = role }).catch((error: Error) => { throw error });
-        this._professionalService.getProfessionalList().then((sponsorsList: Professional[]) => this.sponsors = sponsorsList).catch((error: Error) => { throw error });
+        this._professionalService.getProfessionals().then((sponsorsList: Professional[]) => this.sponsors = sponsorsList).catch((error: Error) => { throw error });
     }
     onCreate() {
         this.action = "new"
