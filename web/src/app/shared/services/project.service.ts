@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 
+import { Observable } from 'rxjs'
+
 import { Project } from '../models/project.model'
 
 
@@ -25,7 +27,7 @@ export class ProjectService {
 
     getProjects(): Promise<Project[]> {
         return this.http.get(`${this.url}/list`).toPromise()
-            .then((res: Response) => )
+            .then((res: Response) => this.extractData(res))
             .catch((error: Error) => this.errorHandling(error))
     }
 

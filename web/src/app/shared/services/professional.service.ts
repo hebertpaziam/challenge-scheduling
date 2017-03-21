@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 
+import { Observable } from 'rxjs'
+
 import { Professional } from '../models/professional.model'
 
 
@@ -25,7 +27,7 @@ export class ProfessionalService {
 
     getProfessionals(): Promise<Professional[]> {
         return this.http.get(`${this.url}/list`).toPromise()
-            .then((res: Response) => )
+            .then((res: Response) => this.extractData(res))
             .catch((error: Error) => this.errorHandling(error))
     }
 

@@ -26,8 +26,4 @@ export class RoleListComponent implements OnInit {
         this._professionalService.getProfessionals().then((sponsorsList: Professional[]) => this.sponsors = sponsorsList).catch((error: Error) => { throw error });
         this._roleService.getRoles().then((roleList: Role[]) => this.roles = roleList).catch((error: Error) => { throw error });
     }
-
-    getSponsorName(role: Role): string {
-        return this.sponsors.find(s => s.professionalId === role.sponsor).name
-    }
 }

@@ -7,8 +7,8 @@ import { Customer } from '../../shared/models/customer.model';
 import { Professional } from '../../shared/models/professional.model';
 
 //SERVICES
-import { CustomerService } from "app/shared/services/customer.service";
-import { ProfessionalService } from "app/shared/services/professional.service";
+import { CustomerService } from "../../shared/services/customer.service";
+import { ProfessionalService } from "../../shared/services/professional.service";
 
 @Component({
     moduleId: module.id,

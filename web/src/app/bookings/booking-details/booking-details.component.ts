@@ -30,7 +30,6 @@ export class BookingDetailsComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-
         this._route.params.subscribe((params: Params) => {
             this.booking.id = +params['id'];
             this.action = params['action'];

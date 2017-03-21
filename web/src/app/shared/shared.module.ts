@@ -3,13 +3,13 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { HeaderComponent } from './header/header.component';
-import { LoaderComponent } from './loader/loader.component';
-import { LoaderService } from './loader/loader.service';
+import { HeaderComponent } from './utilities/header/header.component';
+import { LoaderComponent } from './utilities/loader/loader.component';
+import { LoaderService } from './utilities/loader/loader.service';
 
 @NgModule({
-    imports: [CommonModule, FormsModule, HttpModule, FormsModule, HttpModule],
-    exports: [HeaderComponent, LoaderComponent, CommonModule, FormsModule, HttpModule, FormsModule, HttpModule],
+    imports: [CommonModule, FormsModule, FormsModule, HttpModule],
+    exports: [HeaderComponent, LoaderComponent, CommonModule, FormsModule, FormsModule, HttpModule],
     declarations: [HeaderComponent, LoaderComponent],
     providers: [LoaderService]
 })

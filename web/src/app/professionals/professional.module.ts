@@ -14,7 +14,7 @@ import { professionalRouting } from './professional.routing';
 
 @NgModule({
     imports: [SharedModule, professionalRouting],
-    declarations: [ProfessionalComponent, ProfessionalDetailsComponent],
+    declarations: [ProfessionalComponent,ProfessionalListComponent, ProfessionalDetailsComponent],
     providers: [ProfessionalService]
 })
 

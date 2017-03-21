@@ -7,8 +7,8 @@ import { CustomerListComponent } from './customer-list/customer-list.component';
 import { CustomerDetailsComponent } from './customer-details/customer-details.component';
 
 //services
-import { CustomerService } from "app/shared/services/customer.service";
-import { ProfessionalService } from "app/shared/services/professional.service";
+import { CustomerService } from "../shared/services/customer.service";
+import { ProfessionalService } from "../shared/services/professional.service";
 
 //routing
 import { customerRouting } from './customer.routing';

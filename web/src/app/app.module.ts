@@ -1,33 +1,30 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpModule } from '@angular/http';
-
 import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './app.component';
-import { AppRouting } from "./app.routing";
+import { appRouting } from "./app.routing";
 
-import { AuthGuard } from './auth/auth.guard';
-import { AuthService } from './auth/auth.service';
+import { AuthGuard } from './shared/auth/auth.guard';
+import { AuthService } from './shared/auth/auth.service';
 
-import { CustomerModule } from './customer/customer.module';
-import { BookingModule } from './booking/booking.module';
-import { ProjectModule } from './project/project.module';
-import { ProfessionalModule } from './professional/professional.module';
-import { RoleModule } from './role/role.module';
+import { CustomerModule } from './customers/customer.module';
+import { BookingModule } from './bookings/booking.module';
+import { ProjectModule } from './projects/project.module';
+import { ProfessionalModule } from './professionals/professional.module';
+import { RoleModule } from './roles/role.module';
 
-import { LoaderComponent } from './shared/loader/loader.component';
+import { LoaderComponent } from './shared/utilities/loader/loader.component';
 import { AppHomeComponent } from './app-home.component';
 
 @NgModule({
     imports: [
-        AppRouting,
+        appRouting,
         BrowserModule,
         BookingModule,
         ProfessionalModule,
         RoleModule,
         CustomerModule,
-        HttpModule,
         ProjectModule,
         SharedModule
     ],

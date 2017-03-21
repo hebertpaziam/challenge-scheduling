@@ -29,6 +29,6 @@ export class ProjectListComponent implements OnInit {
     }
 
     getSponsorName(project: Project): string {
-        return this.sponsors.find(s => s.professionalId === project.sponsor).name
+        return this.sponsors.find(s => s.id === project.professional.id).name
     }
 }

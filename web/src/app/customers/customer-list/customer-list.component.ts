@@ -28,6 +28,6 @@ export class CustomerListComponent implements OnInit {
     }
 
     getSponsorName(customer: Customer): string {
-        return this.sponsors.find(s => s.professionalId === customer.sponsor).name
+        return this.sponsors.find(s => s.id === customer.sponsor.id).name
     }
 }

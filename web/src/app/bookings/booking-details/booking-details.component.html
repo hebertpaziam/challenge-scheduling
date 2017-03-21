@@ -27,7 +27,7 @@
                 <div class="form-group">
                     <label for="sponsors">Responsavel</label>
                     <select class="form-control" name="sponsors" required [(ngModel)]="booking.sponsor">
-                        <option [value]="sponsor.professionalId" *ngFor="let sponsor of sponsors">{{sponsor.name}}</option>
+                        <option [value]="sponsor.id" *ngFor="let sponsor of sponsors">{{sponsor.name}}</option>
                     </select>
                 </div>
             </div>

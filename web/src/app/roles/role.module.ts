@@ -15,7 +15,7 @@ import { roleRouting } from './role.routing';
 
 @NgModule({
     imports: [SharedModule, roleRouting],
-    declarations: [RoleComponent, RoleDetailsComponent],
+    declarations: [RoleComponent,RoleListComponent, RoleDetailsComponent],
     providers: [RoleService, ProfessionalService]
 })
 

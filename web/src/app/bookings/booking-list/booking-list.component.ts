@@ -5,8 +5,8 @@ import { Booking } from '../../shared/models/booking.model';
 import { Professional } from '../../shared/models/professional.model';
 
 //SERVICES
-import { BookingService } from "../..//shared/services/booking.service";
-import { ProfessionalService } from "../..//shared/services/professional.service";
+import { BookingService } from "../../shared/services/booking.service";
+import { ProfessionalService } from "../../shared/services/professional.service";
 
 
 @Component({
@@ -29,6 +29,6 @@ export class BookingListComponent implements OnInit {
     }
 
     getSponsorName(booking: Booking): string {
-        return this.sponsors.find(s => s.id === booking.sponsor).name
+        return this.sponsors.find(s => s.id === booking.professional.id).name
     }
 }

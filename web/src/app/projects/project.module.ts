@@ -15,7 +15,7 @@ import { projectRouting } from './project.routing';
 
 @NgModule({
     imports: [SharedModule, projectRouting],
-    declarations: [ProjectComponent, ProjectDetailsComponent],
+    declarations: [ProjectComponent,ProjectListComponent, ProjectDetailsComponent],
     providers: [ProjectService, ProfessionalService]
 })
 

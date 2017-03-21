@@ -1,10 +1,10 @@
-import { AuthGuard } from './auth/auth.guard';
+import { AuthGuard } from './shared/auth/auth.guard';
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { AppHomeComponent } from './app-home.component';
-import { BookingModule } from './booking/booking.module';
+import { BookingModule } from './bookings/booking.module';
 
 const ROUTES: Routes = [{
     path: '',
@@ -43,4 +43,4 @@ const ROUTES: Routes = [{
 }
 ];
 
-export const AppRouting: ModuleWithProviders = RouterModule.forChild(ROUTES);
+export const appRouting: ModuleWithProviders = RouterModule.forChild(ROUTES);
