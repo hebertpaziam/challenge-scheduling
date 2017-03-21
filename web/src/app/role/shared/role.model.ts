@@ -1,10 +1,10 @@
 import { IRole } from './role.interface';
 
-export class Role implements IRole {
+export class Role implements IRole{
     id: number;
     name: string;
-    contact: string;
-    email: string;
-    sponsor: number;
+    brc: string;
+    description: string;
+    level: number;
     deleted: boolean;
 }

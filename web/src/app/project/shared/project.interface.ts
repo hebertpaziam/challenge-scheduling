@@ -1,8 +1,9 @@
 export interface IProject {
-    id: number;
+    projectId: number;
     name: string;
-    contact: string;
-    email: string;
-    sponsor: number;
-    deleted: boolean;
+    dtInitial: Date;
+    dtFinal: Date;
+    wbs: string;
+    customerId: number;
+    sponsorId: number;
 }
