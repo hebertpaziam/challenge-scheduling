@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { SharedModule } from './shared/shared.module';
+import { SharedModule } from 'app/shared/shared.module';
 
-import { AppComponent } from './app.component';
-import { appRouting } from "./app.routing";
+import { AppComponent } from 'app/app.component';
+import { appRouting } from "app/app.routing";
 
-import { AuthGuard } from './shared/auth/auth.guard';
-import { AuthService } from './shared/auth/auth.service';
+import { AuthGuard } from 'app/shared/auth/auth.guard';
+import { AuthService } from 'app/shared/auth/auth.service';
 
-import { BookingModule } from "./bookings/booking.module";
-import { CustomerModule } from './customers/customer.module';
-import { ProjectModule } from './projects/project.module';
-import { ProfessionalModule } from './professionals/professional.module';
-import { RoleModule } from './roles/role.module';
+import { BookingModule } from "app/bookings/booking.module";
+import { CustomerModule } from 'app/customers/customer.module';
+import { ProjectModule } from 'app/projects/project.module';
+import { ProfessionalModule } from 'app/professionals/professional.module';
+import { RoleModule } from 'app/roles/role.module';
 
-import { LoaderComponent } from './shared/utilities/loader/loader.component';
-import { AppHomeComponent } from './app-home.component';
+import { LoaderComponent } from 'app/shared/utilities/loader/loader.component';
+import { AppHomeComponent } from 'app/app-home.component';
 
 @NgModule({
     imports: [

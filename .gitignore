@@ -4,3 +4,4 @@ api/**/*.js
 **/bower_components/
 **/dist/
 **/*.log
+**/*.old*

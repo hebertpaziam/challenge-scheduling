@@ -8,4 +8,4 @@ export class PercentualFilter implements PipeTransform {
             return '';
         return value.toString() + "%";
     }
-}
+}    

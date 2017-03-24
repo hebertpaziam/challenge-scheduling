@@ -16,12 +16,5 @@
       "es2016",
       "dom"
     ]
-  },
-  "include": [
-    "./src/**/*"
-  ],
-  "exclude": [
-    "node_modules",
-    "bower_components"
-  ]
+  }
 }

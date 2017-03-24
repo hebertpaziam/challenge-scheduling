@@ -17,14 +17,14 @@ import { ProfessionalService } from "../../shared/services/professional.service"
 
 export class CustomerListComponent implements OnInit {
 
-    constructor(private _customerService: CustomerService, private _professionalService: ProfessionalService) { }
+    constructor(private customerService: CustomerService, private professionalService: ProfessionalService) { }
 
     private customers: Customer[];
     private sponsors: Professional[];
 
     ngOnInit() {
-        this._professionalService.getProfessionals().then((sponsorsList: Professional[]) => this.sponsors = sponsorsList).catch((error: Error) => { throw error });
-        this._customerService.getCustomers().then((customerList: Customer[]) => this.customers = customerList).catch((error: Error) => { throw error });
+        this.professionalService.getProfessionals().then((sponsorsList: Professional[]) => this.sponsors = sponsorsList).catch((error: Error) => { throw error });
+        this.customerService.getCustomers().then((customerList: Customer[]) => this.customers = customerList).catch((error: Error) => { throw error });
     }
 
     getSponsorName(customer: Customer): string {
