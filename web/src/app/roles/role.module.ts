@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
-import { SharedModule } from '../shared/shared.module';
+import { CommonModule } from "@angular/common";
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { SharedModule } from 'app/shared/shared.module';
 
 //components
 import { RoleComponent } from './role.component';
@@ -14,7 +17,7 @@ import { ProfessionalService } from "../shared/services/professional.service";
 import { roleRouting } from './role.routing';
 
 @NgModule({
-    imports: [SharedModule, roleRouting],
+    imports: [roleRouting, CommonModule, FormsModule, HttpModule, SharedModule],
     declarations: [RoleComponent,RoleListComponent, RoleDetailsComponent],
     providers: [RoleService, ProfessionalService]
 })

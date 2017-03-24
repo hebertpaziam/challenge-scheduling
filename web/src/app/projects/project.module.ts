@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
-import { SharedModule } from '../shared/shared.module';
+import { CommonModule } from "@angular/common";
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { SharedModule } from 'app/shared/shared.module';
 
 //components
 import { ProjectComponent } from './project.component';
@@ -14,7 +17,7 @@ import { ProfessionalService } from "../shared/services/professional.service";
 import { projectRouting } from './project.routing';
 
 @NgModule({
-    imports: [SharedModule, projectRouting],
+    imports: [projectRouting, CommonModule, FormsModule, HttpModule, SharedModule],
     declarations: [ProjectComponent,ProjectListComponent, ProjectDetailsComponent],
     providers: [ProjectService, ProfessionalService]
 })

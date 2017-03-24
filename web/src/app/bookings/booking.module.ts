@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
-import { SharedModule } from '../shared/shared.module';
+import { CommonModule } from "@angular/common";
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { SharedModule } from 'app/shared/shared.module';
 
 //components
 import { BookingComponent } from './booking.component';
@@ -14,7 +17,7 @@ import { ProfessionalService } from "../shared/services/professional.service";
 import { bookingRouting } from './booking.routing';
 
 @NgModule({
-    imports: [SharedModule, bookingRouting],
+    imports: [bookingRouting, CommonModule, FormsModule, HttpModule, SharedModule],
     declarations: [BookingComponent, BookingListComponent, BookingDetailsComponent],
     providers: [BookingService, ProfessionalService]
 })

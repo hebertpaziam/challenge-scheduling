@@ -1,31 +1,33 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 import { SharedModule } from 'app/shared/shared.module';
 
-import { AppComponent } from 'app/app.component';
-import { appRouting } from "app/app.routing";
-
-import { AuthGuard } from 'app/shared/auth/auth.guard';
-import { AuthService } from 'app/shared/auth/auth.service';
-
+//MODULES
 import { BookingModule } from "app/bookings/booking.module";
 import { CustomerModule } from 'app/customers/customer.module';
 import { ProjectModule } from 'app/projects/project.module';
 import { ProfessionalModule } from 'app/professionals/professional.module';
 import { RoleModule } from 'app/roles/role.module';
 
-import { LoaderComponent } from 'app/shared/utilities/loader/loader.component';
+//ROUTING
+import { appRouting } from "app/app.routing";
+
+//SERVICES
+import { AuthGuard } from 'app/shared/auth/auth.guard';
+import { AuthService } from 'app/shared/auth/auth.service';
+
+//COMPONENTS
+import { AppComponent } from 'app/app.component';
 import { AppHomeComponent } from 'app/app-home.component';
 
 @NgModule({
     imports: [
         appRouting,
         BrowserModule,
-        BookingModule,
-        ProfessionalModule,
-        RoleModule,
-        CustomerModule,
-        ProjectModule,
+        FormsModule,
+        HttpModule,
         SharedModule
     ],
     declarations: [AppComponent, AppHomeComponent],

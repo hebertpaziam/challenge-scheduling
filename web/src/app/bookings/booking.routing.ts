@@ -1,11 +1,13 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+//SERVICES
+import { AuthGuard } from './../shared/auth/auth.guard';
+
+//COMPONENTS
 import { BookingComponent } from './booking.component';
 import { BookingListComponent } from './booking-list/booking-list.component';
 import { BookingDetailsComponent } from './booking-details/booking-details.component';
-
-import { AuthGuard } from './../shared/auth/auth.guard';
 
 const ROUTES: Routes = [{
     path: '',
