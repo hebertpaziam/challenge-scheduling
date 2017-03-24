@@ -3,8 +3,13 @@ import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { AppHomeComponent } from './app-home.component';
-import { BookingModule } from './bookings/booking.module';
+import { AppHomeComponent } from './app-home/app-home.component';
+
+import { BookingModule } from './booking/booking.module';
+import { ProfessionalModule } from './professional/professional.module';
+import { RoleModule } from './role/role.module';
+import { CustomerModule } from './customer/customer.module';
+import { ProjectModule } from './project/project.module';
 
 const ROUTES: Routes = [{
     path: '',

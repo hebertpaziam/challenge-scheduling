@@ -5,3 +5,4 @@ api/**/*.js
 **/dist/
 **/*.log
 **/*.old*
+**/*.new*

@@ -10,7 +10,7 @@ import { ProfessionalListComponent } from './professional-list/professional-list
 import { ProfessionalDetailsComponent } from './professional-details/professional-details.component';
 
 //services
-import { ProfessionalService } from "../shared/services/professional.service";
+import { ProfessionalService } from "../shared/service/professional.service";
 
 //routing
 import { professionalRouting } from './professional.routing';
