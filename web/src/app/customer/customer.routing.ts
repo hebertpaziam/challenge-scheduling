@@ -1,11 +1,13 @@
-import { ModuleWithProviders } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule }             from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
+//SERVICES
+import { AuthGuard } from './../shared/auth/auth.guard';
+
+//COMPONENTS
 import { CustomerComponent } from './customer.component';
 import { CustomerListComponent } from './customer-list/customer-list.component';
 import { CustomerDetailsComponent } from './customer-details/customer-details.component';
-
-import { AuthGuard } from './../shared/auth/auth.guard';
 
 const ROUTES: Routes = [{
     path: '',
@@ -25,4 +27,8 @@ const ROUTES: Routes = [{
 }
 ];
 
-export const customerRouting: ModuleWithProviders = RouterModule.forChild(ROUTES);
+@NgModule({
+  imports: [ RouterModule.forRoot(ROUTES) ],
+  exports: [ RouterModule ]
+})
+export class CustomerRoutingModule {}

@@ -15,10 +15,10 @@ import { RoleService } from "../shared/services/role.service";
 import { ProfessionalService } from "../shared/services/professional.service";
 
 //routing
-import { roleRouting } from './role.routing';
+import { RoleRoutingModule } from './role.routing';
 
 @NgModule({
-    imports: [roleRouting, CommonModule, FormsModule, HttpModule, SharedModule, BrowserModule],
+    imports: [RoleRoutingModule, CommonModule, FormsModule, HttpModule, SharedModule, BrowserModule],
     declarations: [RoleComponent,RoleListComponent, RoleDetailsComponent],
     providers: [RoleService, ProfessionalService]
 })

@@ -14,10 +14,10 @@ import { ProfessionalDetailsComponent } from './professional-details/professiona
 import { ProfessionalService } from "../shared/services/professional.service";
 
 //routing
-import { professionalRouting } from './professional.routing';
+import { ProfessionalRoutingModule } from './professional.routing';
 
 @NgModule({
-    imports: [professionalRouting, CommonModule, FormsModule, HttpModule, SharedModule, BrowserModule],
+    imports: [ProfessionalRoutingModule, CommonModule, FormsModule, HttpModule, SharedModule, BrowserModule],
     declarations: [ProfessionalComponent,ProfessionalListComponent, ProfessionalDetailsComponent],
     providers: [ProfessionalService]
 })

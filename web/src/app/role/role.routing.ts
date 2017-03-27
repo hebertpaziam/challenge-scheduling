@@ -1,11 +1,13 @@
-import { ModuleWithProviders } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule }             from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
+//SERVICES
+import { AuthGuard } from './../shared/auth/auth.guard';
+
+//COMPONENTS
 import { RoleComponent } from './role.component';
 import { RoleListComponent } from './role-list/role-list.component';
 import { RoleDetailsComponent } from './role-details/role-details.component';
-
-import { AuthGuard } from './../shared/auth/auth.guard';
 
 const ROUTES: Routes = [{
     path: '',
@@ -25,4 +27,8 @@ const ROUTES: Routes = [{
 }
 ];
 
-export const roleRouting: ModuleWithProviders = RouterModule.forChild(ROUTES);
+@NgModule({
+  imports: [ RouterModule.forRoot(ROUTES) ],
+  exports: [ RouterModule ]
+})
+export class RoleRoutingModule {}

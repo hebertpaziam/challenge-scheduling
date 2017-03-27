@@ -12,7 +12,7 @@ import { ProfessionalModule } from './professional/professional.module';
 import { RoleModule } from './role/role.module';
 
 //ROUTING
-import { appRouting } from "./app.routing";
+import { AppRoutingModule } from "./app-routing.module";
 
 //SERVICES
 import { AuthGuard } from './shared/auth/auth.guard';
@@ -24,7 +24,7 @@ import { AppHomeComponent } from './app-home/app-home.component';
 
 @NgModule({
     imports: [
-        appRouting,
+        AppRoutingModule,
         BrowserModule,
         FormsModule,
         HttpModule,

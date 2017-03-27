@@ -15,10 +15,10 @@ import { CustomerService } from "../shared/services/customer.service";
 import { ProfessionalService } from "../shared/services/professional.service";
 
 //routing
-import { customerRouting } from './customer.routing';
+import { CustomerRoutingModule } from './customer.routing';
 
 @NgModule({
-    imports: [customerRouting, CommonModule, FormsModule, HttpModule, SharedModule, BrowserModule],
+    imports: [CustomerRoutingModule, CommonModule, FormsModule, HttpModule, SharedModule, BrowserModule],
     declarations: [CustomerComponent,CustomerListComponent, CustomerDetailsComponent],
     providers: [CustomerService, ProfessionalService]
 })

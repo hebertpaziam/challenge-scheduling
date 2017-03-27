@@ -15,10 +15,10 @@ import { AllocationService } from "../shared/services/allocation.service";
 import { ProfessionalService } from "../shared/services/professional.service";
 
 //routing
-import { allocationRouting } from './allocation.routing';
+import { AllocationRoutingModule } from './allocation.routing';
 
 @NgModule({
-    imports: [allocationRouting, CommonModule, FormsModule, HttpModule, SharedModule, BrowserModule],
+    imports: [AllocationRoutingModule, CommonModule, FormsModule, HttpModule, SharedModule, BrowserModule],
     declarations: [AllocationComponent, AllocationListComponent, AllocationDetailsComponent],
     providers: [AllocationService, ProfessionalService]
 })

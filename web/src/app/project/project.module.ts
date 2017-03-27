@@ -15,10 +15,10 @@ import { ProjectService } from "../shared/services/project.service";
 import { ProfessionalService } from "../shared/services/professional.service";
 
 //routing
-import { projectRouting } from './project.routing';
+import { ProjectRoutingModule } from './project.routing';
 
 @NgModule({
-    imports: [projectRouting, CommonModule, FormsModule, HttpModule, SharedModule, BrowserModule],
+    imports: [ProjectRoutingModule, CommonModule, FormsModule, HttpModule, SharedModule, BrowserModule],
     declarations: [ProjectComponent,ProjectListComponent, ProjectDetailsComponent],
     providers: [ProjectService, ProfessionalService]
 })

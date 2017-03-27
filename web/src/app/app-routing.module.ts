@@ -1,6 +1,7 @@
+import { NgModule }             from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+
 import { AuthGuard } from './shared/auth/auth.guard';
-import { ModuleWithProviders } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { AppHomeComponent } from './app-home/app-home.component';
@@ -48,4 +49,8 @@ const ROUTES: Routes = [{
 }
 ];
 
-export const appRouting: ModuleWithProviders = RouterModule.forChild(ROUTES);
+@NgModule({
+  imports: [ RouterModule.forRoot(ROUTES) ],
+  exports: [ RouterModule ]
+})
+export class AppRoutingModule {}
