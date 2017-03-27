@@ -18,14 +18,14 @@ import { ProfessionalService } from "../../shared/services/professional.service"
 
 export class AllocationListComponent implements OnInit {
 
-    constructor(private _allocationService: AllocationService, private _professionalService: ProfessionalService) { }
+    constructor(private allocationService: AllocationService, private professionalService: ProfessionalService) { }
 
     private allocations: Allocation[];
     private sponsors: Professional[];
 
     ngOnInit() {
-        this._professionalService.getProfessionals().then((sponsorsList: Professional[]) => this.sponsors = sponsorsList).catch((error: Error) => { throw error });
-        this._allocationService.getAllocations().then((allocationList: Allocation[]) => this.allocations = allocationList).catch((error: Error) => { throw error });
+        this.professionalService.getProfessionals().then((sponsorsList: Professional[]) => this.sponsors = sponsorsList).catch((error: Error) => { throw error });
+        this.allocationService.getAllocations().then((allocationList: Allocation[]) => this.allocations = allocationList).catch((error: Error) => { throw error });
     }
 
     getSponsorName(allocation: Allocation): string {

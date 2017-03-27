@@ -10,7 +10,7 @@ import { ProfessionalModule } from './professional/professional.module';
 import { RoleModule } from './role/role.module';
 
 //ROUTING
-import { AppRoutingModule } from "./app-routing.module";
+import { AppRoutingModule } from "./app.routing";
 
 //SERVICES
 import { AuthGuard } from './shared/auth/auth.guard';

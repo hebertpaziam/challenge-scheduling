@@ -14,7 +14,7 @@ const ROUTES: Routes = [{
     canActivateChild: [AuthGuard],
     children: [
         {
-            path: 'professionals',
+            path: '',
             component: ProfessionalListComponent,
             canLoad: [AuthGuard],
         },

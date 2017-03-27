@@ -14,7 +14,7 @@ const ROUTES: Routes = [{
     canActivateChild: [AuthGuard],
     children: [
         {
-            path: 'allocations',
+            path: '',
             component: AllocationListComponent,
             canLoad: [AuthGuard],
         },

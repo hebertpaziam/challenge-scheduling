@@ -4,11 +4,9 @@ import { Location } from '@angular/common';
 
 //MODELS
 import { Customer } from '../../shared/models/customer.model';
-import { Professional } from '../../shared/models/professional.model';
 
 //SERVICES
 import { CustomerService } from "../../shared/services/customer.service";
-import { ProfessionalService } from "../../shared/services/professional.service";
 
 @Component({
     moduleId: module.id,
@@ -16,49 +14,44 @@ import { ProfessionalService } from "../../shared/services/professional.service"
 })
 export class CustomerDetailsComponent implements OnInit {
 
-    public action: string;
-
+    private action: string;
     private customer: Customer = new Customer();
-    private sponsors: Professional[] = [];
 
     constructor(
-        private _route: ActivatedRoute,
-        private _customerService: CustomerService,
-        private _professionalService: ProfessionalService,
-        private _router: Router,
-        private _location: Location
+        private route: ActivatedRoute,
+        private router: Router,
+        private location: Location,
+        private customerService: CustomerService
     ) { }
 
     ngOnInit() {
-
-        this._route.params.subscribe((params: Params) => {
+        this.route.params.subscribe((params: Params) => {
             this.customer.id = +params['id'];
             this.action = params['action'];
         });
 
-        this._customerService.getCustomerById(this.customer).then((customer: Customer) => { this.customer = customer }).catch((error: Error) => { throw error });
-        this._professionalService.getProfessionals().then((sponsorsList: Professional[]) => this.sponsors = sponsorsList).catch((error: Error) => { throw error });
+        this.customerService.getCustomerById(this.customer).then((customer: Customer) => { this.customer = customer }).catch((error: Error) => { throw error });
     }
     onCreate() {
-        this.action = "new"
+        this.action = "novo"
         this.customer = Object.assign({}, new Customer());
     }
     onEdit() {
-        this.action = "edit"
+        this.action = "editar"
     }
 
     save() {
-        if (this.action === "edit") this._customerService.updateCustomer(this.customer).then(() => { this._router.navigate(['/customers']) })
-        else if (this.action === "new") this._customerService.createCustomer(this.customer).then(() => { this._router.navigate(['/customers']) })
-        else console.log("Action Invalid!!");
+        if (this.action === "editar") this.customerService.updateCustomer(this.customer).then(() => { this.router.navigate(['/clientes']) })
+        else if (this.action === "novo") this.customerService.createCustomer(this.customer).then(() => { this.router.navigate(['/clientes']) })
+        else console.log("Ação inválida!!");
     }
 
     delete() {
-        this._customerService.deleteCustomer(this.customer).then(() => { this._router.navigate(['/customers']) })
+        this.customerService.deleteCustomer(this.customer).then(() => { this.router.navigate(['/clientes']) })
     }
 
     goBack() {
-        this._location.back();
+        this.location.back();
     }
 
 }

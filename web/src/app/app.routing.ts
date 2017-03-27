@@ -17,27 +17,27 @@ const ROUTES: Routes = [{
     canActivateChild: [AuthGuard],
     children: [
         {
-            path: 'allocations',
+            path: 'alocacoes',
             loadChildren: './allocation/allocation.module#AllocationModule',
             canLoad: [AuthGuard],
         },
         {
-            path: 'professionals',
+            path: 'profissionais',
             loadChildren: './professional/professional.module#ProfessionalModule',
             canLoad: [AuthGuard],
         },
         {
-            path: 'roles',
+            path: 'cargos',
             loadChildren: './role/role.module#RoleModule',
             canLoad: [AuthGuard],
         },
         {
-            path: 'customers',
+            path: 'clientes',
             loadChildren: './customer/customer.module#CustomerModule',
             canLoad: [AuthGuard],
         },
         {
-            path: 'projects',
+            path: 'projetos',
             loadChildren: './project/project.module#ProjectModule',
             canLoad: [AuthGuard],
         },

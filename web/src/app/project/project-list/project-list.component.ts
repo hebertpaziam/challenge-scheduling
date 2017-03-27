@@ -1,13 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 //MODELS
-import { Project } from "../../shared/models/project.model";
-import { Professional } from "../../shared/models/professional.model";
+import { Project } from '../../shared/models/project.model';
 
 //SERVICES
 import { ProjectService } from "../../shared/services/project.service";
-import { ProfessionalService } from "../../shared/services/professional.service";
-
 
 @Component({
     moduleId: module.id,
@@ -18,17 +15,11 @@ import { ProfessionalService } from "../../shared/services/professional.service"
 
 export class ProjectListComponent implements OnInit {
 
-    constructor(private _projectService: ProjectService, private _professionalService: ProfessionalService) { }
-
     private projects: Project[];
-    private sponsors: Professional[];
+
+    constructor(private projectService: ProjectService) { }
 
     ngOnInit() {
-        this._professionalService.getProfessionals().then((sponsorsList: Professional[]) => this.sponsors = sponsorsList).catch((error: Error) => { throw error });
-        this._projectService.getProjects().then((projectList: Project[]) => this.projects = projectList).catch((error: Error) => { throw error });
-    }
-
-    getSponsorName(project: Project): string {
-        return this.sponsors.find(s => s.id === project.professional.id).name
+        this.projectService.getProjects().then((projectList: Project[]) => this.projects = projectList).catch((error: Error) => { throw error });
     }
 }

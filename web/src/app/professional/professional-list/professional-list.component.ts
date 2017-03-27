@@ -6,7 +6,6 @@ import { Professional } from '../../shared/models/professional.model';
 //SERVICES
 import { ProfessionalService } from "../../shared/services/professional.service";
 
-
 @Component({
     moduleId: module.id,
     selector: 'ava-professional-list',
@@ -16,12 +15,11 @@ import { ProfessionalService } from "../../shared/services/professional.service"
 
 export class ProfessionalListComponent implements OnInit {
 
-    constructor(private _professionalService: ProfessionalService) { }
-
     private professionals: Professional[];
-    private sponsors: Professional[];
+
+    constructor(private professionalService: ProfessionalService) { }
 
     ngOnInit() {
-        this._professionalService.getProfessionals().then((professionalList: Professional[]) => this.professionals = professionalList).catch((error: Error) => { throw error });
+        this.professionalService.getProfessionals().then((professionalList: Professional[]) => this.professionals = professionalList).catch((error: Error) => { throw error });
     }
 }

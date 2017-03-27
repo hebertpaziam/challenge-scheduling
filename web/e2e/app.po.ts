@@ -6,6 +6,6 @@ export class WebPage {
   }
 
   getParagraphText() {
-    return element(by.css('app-root h1')).getText();
+    return element(by.css('ava-app h1')).getText();
   }
 }

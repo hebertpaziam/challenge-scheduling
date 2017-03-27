@@ -14,7 +14,7 @@ const ROUTES: Routes = [{
     canActivateChild: [AuthGuard],
     children: [
         {
-            path: 'roles',
+            path: '',
             component: RoleListComponent,
             canLoad: [AuthGuard],
         },

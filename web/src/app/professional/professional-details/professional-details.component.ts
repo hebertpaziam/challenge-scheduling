@@ -14,47 +14,44 @@ import { ProfessionalService } from "../../shared/services/professional.service"
 })
 export class ProfessionalDetailsComponent implements OnInit {
 
-    public action: string;
-
+    private action: string;
     private professional: Professional = new Professional();
-    private sponsors: Professional[] = [];
 
     constructor(
-        private _route: ActivatedRoute,
-        private _professionalService: ProfessionalService,
-        private _router: Router,
-        private _location: Location
+        private route: ActivatedRoute,
+        private router: Router,
+        private location: Location,
+        private professionalService: ProfessionalService
     ) { }
 
     ngOnInit() {
-
-        this._route.params.subscribe((params: Params) => {
+        this.route.params.subscribe((params: Params) => {
             this.professional.id = +params['id'];
             this.action = params['action'];
         });
 
-        this._professionalService.getProfessionalById(this.professional).then((professional: Professional) => { this.professional = professional }).catch((error: Error) => { throw error });
+        this.professionalService.getProfessionalById(this.professional).then((professional: Professional) => { this.professional = professional }).catch((error: Error) => { throw error });
     }
     onCreate() {
-        this.action = "new"
+        this.action = "novo"
         this.professional = Object.assign({}, new Professional());
     }
     onEdit() {
-        this.action = "edit"
+        this.action = "editar"
     }
 
     save() {
-        if (this.action === "edit") this._professionalService.updateProfessional(this.professional).then(() => { this._router.navigate(['/professionals']) })
-        else if (this.action === "new") this._professionalService.createProfessional(this.professional).then(() => { this._router.navigate(['/professionals']) })
-        else console.log("Action Invalid!!");
+        if (this.action === "editar") this.professionalService.updateProfessional(this.professional).then(() => { this.router.navigate(['/profissionais']) })
+        else if (this.action === "novo") this.professionalService.createProfessional(this.professional).then(() => { this.router.navigate(['/profissionais']) })
+        else console.log("Ação inválida!!");
     }
 
     delete() {
-        this._professionalService.deleteProfessional(this.professional).then(() => { this._router.navigate(['/professionals']) })
+        this.professionalService.deleteProfessional(this.professional).then(() => { this.router.navigate(['/profissionais']) })
     }
 
     goBack() {
-        this._location.back();
+        this.location.back();
     }
 
 }

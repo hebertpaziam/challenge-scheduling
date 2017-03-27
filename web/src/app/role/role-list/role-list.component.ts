@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 //MODELS
-import { Role } from "../../shared/models/role.model";
-import { Professional } from "../../shared/models/professional.model";
+import { Role } from '../../shared/models/role.model';
 
 //SERVICES
 import { RoleService } from "../../shared/services/role.service";
-import { ProfessionalService } from "../../shared/services/professional.service";
 
 @Component({
     moduleId: module.id,
@@ -17,13 +15,11 @@ import { ProfessionalService } from "../../shared/services/professional.service"
 
 export class RoleListComponent implements OnInit {
 
-    constructor(private _roleService: RoleService, private _professionalService: ProfessionalService) { }
-
     private roles: Role[];
-    private sponsors: Professional[];
+
+    constructor(private roleService: RoleService) { }
 
     ngOnInit() {
-        this._professionalService.getProfessionals().then((sponsorsList: Professional[]) => this.sponsors = sponsorsList).catch((error: Error) => { throw error });
-        this._roleService.getRoles().then((roleList: Role[]) => this.roles = roleList).catch((error: Error) => { throw error });
+        this.roleService.getRoles().then((roleList: Role[]) => this.roles = roleList).catch((error: Error) => { throw error });
     }
 }

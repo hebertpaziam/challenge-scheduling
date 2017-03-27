@@ -4,10 +4,8 @@ import { Location } from '@angular/common';
 
 //MODELS
 import { Allocation } from '../../shared/models/allocation.model';
-import { Professional } from '../../shared/models/professional.model';
 
 //SERVICES
-import { ProfessionalService } from "../../shared/services/professional.service";
 import { AllocationService } from "../../shared/services/allocation.service";
 
 @Component({
@@ -16,48 +14,44 @@ import { AllocationService } from "../../shared/services/allocation.service";
 })
 export class AllocationDetailsComponent implements OnInit {
 
-    public action: string;
-
+    private action: string;
     private allocation: Allocation = new Allocation();
-    private sponsors: Professional[] = [];
 
     constructor(
-        private _route: ActivatedRoute,
-        private _allocationService: AllocationService,
-        private _professionalService: ProfessionalService,
-        private _router: Router,
-        private _location: Location
+        private route: ActivatedRoute,
+        private router: Router,
+        private location: Location,
+        private allocationService: AllocationService
     ) { }
 
     ngOnInit() {
-        this._route.params.subscribe((params: Params) => {
+        this.route.params.subscribe((params: Params) => {
             this.allocation.id = +params['id'];
             this.action = params['action'];
         });
 
-        this._allocationService.getAllocationById(this.allocation).then((allocation: Allocation) => { this.allocation = allocation }).catch((error: Error) => { throw error });
-        this._professionalService.getProfessionals().then((sponsorsList: Professional[]) => this.sponsors = sponsorsList).catch((error: Error) => { throw error });
+        this.allocationService.getAllocationById(this.allocation).then((allocation: Allocation) => { this.allocation = allocation }).catch((error: Error) => { throw error });
     }
     onCreate() {
-        this.action = "new"
+        this.action = "novo"
         this.allocation = Object.assign({}, new Allocation());
     }
     onEdit() {
-        this.action = "edit"
+        this.action = "editar"
     }
 
     save() {
-        if (this.action === "edit") this._allocationService.updateAllocation(this.allocation).then(() => { this._router.navigate(['/allocations']) })
-        else if (this.action === "new") this._allocationService.createAllocation(this.allocation).then(() => { this._router.navigate(['/allocations']) })
-        else console.log("Action Invalid!!");
+        if (this.action === "editar") this.allocationService.updateAllocation(this.allocation).then(() => { this.router.navigate(['/alocacoes']) })
+        else if (this.action === "novo") this.allocationService.createAllocation(this.allocation).then(() => { this.router.navigate(['/alocacoes']) })
+        else console.log("Ação inválida!!");
     }
 
     delete() {
-        this._allocationService.deleteAllocation(this.allocation).then(() => { this._router.navigate(['/allocations']) })
+        this.allocationService.deleteAllocation(this.allocation).then(() => { this.router.navigate(['/alocacoes']) })
     }
 
     goBack() {
-        this._location.back();
+        this.location.back();
     }
 
 }

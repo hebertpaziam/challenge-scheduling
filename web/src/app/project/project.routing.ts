@@ -14,7 +14,7 @@ const ROUTES: Routes = [{
     canActivateChild: [AuthGuard],
     children: [
         {
-            path: 'projects',
+            path: '',
             component: ProjectListComponent,
             canLoad: [AuthGuard],
         },

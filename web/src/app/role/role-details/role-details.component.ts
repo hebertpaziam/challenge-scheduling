@@ -3,12 +3,10 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 //MODELS
-import { Role } from "../../shared/models/role.model";
-import { Professional } from "../../shared/models/professional.model";
+import { Role } from '../../shared/models/role.model';
 
 //SERVICES
 import { RoleService } from "../../shared/services/role.service";
-import { ProfessionalService } from "../../shared/services/professional.service";
 
 @Component({
     moduleId: module.id,
@@ -16,49 +14,44 @@ import { ProfessionalService } from "../../shared/services/professional.service"
 })
 export class RoleDetailsComponent implements OnInit {
 
-    public action: string;
-
+    private action: string;
     private role: Role = new Role();
-    private sponsors: Professional[] = [];
 
     constructor(
-        private _route: ActivatedRoute,
-        private _roleService: RoleService,
-        private _professionalService: ProfessionalService,
-        private _router: Router,
-        private _location: Location
+        private route: ActivatedRoute,
+        private router: Router,
+        private location: Location,
+        private roleService: RoleService
     ) { }
 
     ngOnInit() {
-
-        this._route.params.subscribe((params: Params) => {
+        this.route.params.subscribe((params: Params) => {
             this.role.id = +params['id'];
             this.action = params['action'];
         });
 
-        this._roleService.getRoleById(this.role).then((role: Role) => { this.role = role }).catch((error: Error) => { throw error });
-        this._professionalService.getProfessionals().then((sponsorsList: Professional[]) => this.sponsors = sponsorsList).catch((error: Error) => { throw error });
+        this.roleService.getRoleById(this.role).then((role: Role) => { this.role = role }).catch((error: Error) => { throw error });
     }
     onCreate() {
-        this.action = "new"
+        this.action = "novo"
         this.role = Object.assign({}, new Role());
     }
     onEdit() {
-        this.action = "edit"
+        this.action = "editar"
     }
 
     save() {
-        if (this.action === "edit") this._roleService.updateRole(this.role).then(() => { this._router.navigate(['/roles']) })
-        else if (this.action === "new") this._roleService.createRole(this.role).then(() => { this._router.navigate(['/roles']) })
-        else console.log("Action Invalid!!");
+        if (this.action === "editar") this.roleService.updateRole(this.role).then(() => { this.router.navigate(['/cargos']) })
+        else if (this.action === "novo") this.roleService.createRole(this.role).then(() => { this.router.navigate(['/cargos']) })
+        else console.log("Ação inválida!!");
     }
 
     delete() {
-        this._roleService.deleteRole(this.role).then(() => { this._router.navigate(['/roles']) })
+        this.roleService.deleteRole(this.role).then(() => { this.router.navigate(['/cargos']) })
     }
 
     goBack() {
-        this._location.back();
+        this.location.back();
     }
 
 }
