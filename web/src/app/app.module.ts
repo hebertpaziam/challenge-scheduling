@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 import { SharedModule } from './shared/shared.module';
 
 //MODULES
@@ -26,8 +24,6 @@ import { AppHomeComponent } from './app-home/app-home.component';
     imports: [
         AppRoutingModule,
         BrowserModule,
-        FormsModule,
-        HttpModule,
         SharedModule
     ],
     declarations: [AppComponent, AppHomeComponent],

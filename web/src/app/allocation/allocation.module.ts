@@ -1,8 +1,4 @@
 import { NgModule } from '@angular/core';
-
-import { CommonModule } from "@angular/common";
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 import { SharedModule } from '../shared/shared.module';
 
 //components
@@ -18,7 +14,7 @@ import { ProfessionalService } from "../shared/services/professional.service";
 import { AllocationRoutingModule } from './allocation.routing';
 
 @NgModule({
-    imports: [AllocationRoutingModule, CommonModule, FormsModule, HttpModule, SharedModule],
+    imports: [AllocationRoutingModule, SharedModule],
     declarations: [AllocationComponent, AllocationListComponent, AllocationDetailsComponent],
     providers: [AllocationService, ProfessionalService]
 })
