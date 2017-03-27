@@ -4,7 +4,7 @@ import { Customer } from './models/customer.model';
 import { Professional } from './models/professional.model';
 import { Role } from './models/role.model';
 
-export const ALLOCATIONS: Allocation[] = [
+export let ALLOCATIONS: Allocation[] = [
     {
         id: 1,
         startDate: new Date("2017-03-11T02:00:00.000Z"),
@@ -229,7 +229,7 @@ export const ALLOCATIONS: Allocation[] = [
     },
 ];
 
-export const CUSTOMERS: Customer[] = [
+export let CUSTOMERS: Customer[] = [
     {
         id: 1,
         name: "customer 1",
@@ -307,7 +307,7 @@ export const CUSTOMERS: Customer[] = [
     }
 ];
 
-export const PROFESSIONALS: Professional[] = [
+export let PROFESSIONALS: Professional[] = [
     {
         id: 1,
         pid: 1406,
@@ -361,7 +361,7 @@ export const PROFESSIONALS: Professional[] = [
     }
 ];
 
-export const PROJECTS: Project[] = [
+export let PROJECTS: Project[] = [
     {
         id: 1,
         name: "Projeto 1",
@@ -514,7 +514,7 @@ export const PROJECTS: Project[] = [
     }
 ];
 
-export const ROLES: Role[] = [
+export let ROLES: Role[] = [
     {
         id: 1,
         name: "Associate Software Engineer",
