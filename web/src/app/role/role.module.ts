@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from "@angular/platform-browser";
+
 import { CommonModule } from "@angular/common";
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -18,7 +18,7 @@ import { ProfessionalService } from "../shared/services/professional.service";
 import { RoleRoutingModule } from './role.routing';
 
 @NgModule({
-    imports: [RoleRoutingModule, CommonModule, FormsModule, HttpModule, SharedModule, BrowserModule],
+    imports: [RoleRoutingModule, CommonModule, FormsModule, HttpModule, SharedModule],
     declarations: [RoleComponent,RoleListComponent, RoleDetailsComponent],
     providers: [RoleService, ProfessionalService]
 })

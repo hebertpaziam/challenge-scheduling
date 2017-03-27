@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from "@angular/platform-browser";
+
 import { CommonModule } from "@angular/common";
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -18,7 +18,7 @@ import { ProfessionalService } from "../shared/services/professional.service";
 import { AllocationRoutingModule } from './allocation.routing';
 
 @NgModule({
-    imports: [AllocationRoutingModule, CommonModule, FormsModule, HttpModule, SharedModule, BrowserModule],
+    imports: [AllocationRoutingModule, CommonModule, FormsModule, HttpModule, SharedModule],
     declarations: [AllocationComponent, AllocationListComponent, AllocationDetailsComponent],
     providers: [AllocationService, ProfessionalService]
 })

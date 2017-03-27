@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from "@angular/platform-browser";
+
 import { CommonModule } from "@angular/common";
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -18,7 +18,7 @@ import { ProfessionalService } from "../shared/services/professional.service";
 import { ProjectRoutingModule } from './project.routing';
 
 @NgModule({
-    imports: [ProjectRoutingModule, CommonModule, FormsModule, HttpModule, SharedModule, BrowserModule],
+    imports: [ProjectRoutingModule, CommonModule, FormsModule, HttpModule, SharedModule],
     declarations: [ProjectComponent,ProjectListComponent, ProjectDetailsComponent],
     providers: [ProjectService, ProfessionalService]
 })
