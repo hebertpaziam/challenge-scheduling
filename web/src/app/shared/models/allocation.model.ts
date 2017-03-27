@@ -9,4 +9,10 @@ export class Allocation {
     endDate: Date;
     percentual: number;
     deleted: boolean;
+
+    constructor() {
+        this.project = new Project();
+        this.professional = new Professional();
+    }
+
 }

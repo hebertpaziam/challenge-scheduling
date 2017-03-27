@@ -25,6 +25,7 @@ export class AllocationDetailsComponent implements OnInit {
     ) { }
 
     ngOnInit() {
+        console.log(this.route.snapshot)
         this.route.params.subscribe((params: Params) => {
             this.allocation.id = +params['id'];
             this.action = params['action'];

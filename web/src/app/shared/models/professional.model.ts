@@ -9,4 +9,8 @@ export class Professional {
     role: Role;
     phone: string;
     deleted: boolean;
+
+    constructor() {
+        this.role = new Role();
+    }
 }

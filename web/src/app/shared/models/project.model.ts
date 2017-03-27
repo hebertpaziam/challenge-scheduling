@@ -10,4 +10,9 @@ export class Project {
     wbs: string;
     professional: Professional;
     deleted: boolean;
+
+    constructor() {
+        this.professional = new Professional();
+        this.customer = new Customer();
+    }
 }

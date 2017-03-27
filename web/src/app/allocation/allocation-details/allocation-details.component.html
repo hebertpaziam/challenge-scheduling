@@ -1,5 +1,5 @@
-<form #form="ngForm" *ngIf="allocation">
-    <fieldset [disabled]="action === 'details'">
+<form #form="ngForm">
+    <fieldset [disabled]="action === 'detalhes'">
         <div class="row">
             <div class="col-md-3">
                 <div class="form-group">
@@ -12,17 +12,17 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="name">Nome</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Nome completo" required [(ngModel)]="allocation.name">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Nome completo" required [(ngModel)]="allocation.project.name">
                 </div>
                 <div class="form-group">
                     <label for="contact">Contato</label>
-                    <input type="text" class="form-control" id="contact" name="contact" placeholder="Contato" required [(ngModel)]="allocation.contact">
+                    <input type="text" class="form-control" id="contact" name="contact" placeholder="Contato" required [(ngModel)]="allocation.professional.name">
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="email@avanade.com" required [(ngModel)]="allocation.email">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="email@avanade.com" required [(ngModel)]="allocation.professional.email">
                 </div>
                 <div class="form-group">
                     <label for="sponsors">Responsavel</label>
@@ -36,10 +36,10 @@
     <div class="row">
         <div class="col-md-12">
             <div class="form-group">
-                <button *ngIf="action === 'details'" type="button" class="btn btn-primary btn-outline" (click)="onCreate()">Novo</button>
-                <button *ngIf="action === 'details'" type="button" class="btn btn-primary btn-outline" (click)="onEdit()">Alterar</button>
-                <button *ngIf="action === 'edit' || action === 'new' " type="button" class="btn btn-primary btn-outline" (click)="save()">Salvar</button>
-                <button *ngIf="action === 'details'" type="button" class="btn btn-primary btn-outline" (click)="delete()">Excluir</button>
+                <button *ngIf="action === 'detalhes'" type="button" class="btn btn-primary btn-outline" (click)="onCreate()">Novo</button>
+                <button *ngIf="action === 'detalhes'" type="button" class="btn btn-primary btn-outline" (click)="onEdit()">Alterar</button>
+                <button *ngIf="action === 'editar' || action === 'novo' " type="button" class="btn btn-primary btn-outline" (click)="save()">Salvar</button>
+                <button *ngIf="action === 'detalhes'" type="button" class="btn btn-primary btn-outline" (click)="delete()">Excluir</button>
                 <button type="button" class="btn btn-default" (click)="goBack()">Voltar</button>
             </div>
         </div>

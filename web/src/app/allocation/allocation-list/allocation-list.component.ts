@@ -18,10 +18,10 @@ import { ProfessionalService } from "../../shared/services/professional.service"
 
 export class AllocationListComponent implements OnInit {
 
-    constructor(private allocationService: AllocationService, private professionalService: ProfessionalService) { }
-
     private allocations: Allocation[];
     private sponsors: Professional[];
+
+     constructor(private allocationService: AllocationService, private professionalService: ProfessionalService) { }
 
     ngOnInit() {
         this.professionalService.getProfessionals().then((sponsorsList: Professional[]) => this.sponsors = sponsorsList).catch((error: Error) => { throw error });

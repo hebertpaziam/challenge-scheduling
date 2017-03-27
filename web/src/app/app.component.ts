@@ -9,9 +9,9 @@ import { Router } from "@angular/router";
 
 export class AppComponent implements OnInit {
 
-    constructor(private router:Router){}
+    constructor(private router: Router) { }
 
     ngOnInit() {
-        this.router.navigate(['home']);
+       if(document.location.pathname === "/") this.router.navigate(["home"])
     }
 }

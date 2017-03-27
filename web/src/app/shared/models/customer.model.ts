@@ -8,4 +8,9 @@ export class Customer {
     email: string;
     sponsor: Professional;
     deleted: boolean;
+
+    constructor() {
+        this.sponsor = new Professional();
+    }
+
 }

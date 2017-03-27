@@ -8,17 +8,19 @@
                 <th>Contato</th>
                 <th>E-mail</th>
                 <th>Responsavel</th>
-                <th>Detalhes</th>
+                <th colspan="3">Detalhes</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let allocation of allocations">
                 <td>{{ allocation.id }}</td>
-                <td>{{ allocation.name}}</td>
-                <td>{{ allocation.contact }}</td>
-                <td>{{ allocation.email }}</td>
+                <td>{{ allocation.project.name}}</td>
+                <td>{{ allocation.professional.name }}</td>
+                <td>{{ allocation.professional.email }}</td>
                 <td>{{ getSponsorName(allocation) }}</td>
-                <td><span class="glyphicon glyphicon-folder-open" [routerLink]="['/allocations', 'details', allocation.id]"></span></td>
+                <td><span class="glyphicon glyphicon-search" [routerLink]="['/alocacoes', 'detalhes', allocation.id]"></span></td>
+                <td><span class="glyphicon glyphicon-pencil" [routerLink]="['/alocacoes', 'editar', allocation.id]"></span></td>
+                <td><span class="glyphicon glyphicon-remove" [routerLink]="['/alocacoes', 'excluir', allocation.id]"></span></td>
             </tr>
         </tbody>
     </table>
