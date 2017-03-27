@@ -3,42 +3,42 @@ import { Http, Response } from '@angular/http';
 
 import { Observable } from 'rxjs'
 
-import { Booking } from '../models/booking.model'
+import { Allocation } from '../models/allocation.model'
 
 
 @Injectable()
-export class BookingService {
+export class AllocationService {
 
-    private url: string = '/api/booking'
+    private url: string = '/api/allocation'
 
     constructor(private http: Http) { }
 
-    createBooking(booking: Booking): Promise<Booking> {
-        return this.http.post(`${this.url}/post`, JSON.stringify(booking)).toPromise()
+    createAllocation(allocation: Allocation): Promise<Allocation> {
+        return this.http.post(`${this.url}/post`, JSON.stringify(allocation)).toPromise()
             .then((res: Response) => this.extractData(res))
             .catch((error: Error) => this.errorHandling(error))
     }
 
-    getBookingById(booking: Booking): Promise<Booking> {
-        return this.http.get(`${this.url}/${booking.id}`).toPromise()
+    getAllocationById(allocation: Allocation): Promise<Allocation> {
+        return this.http.get(`${this.url}/${allocation.id}`).toPromise()
             .then((res: Response) => this.extractData(res))
             .catch((error: Error) => this.errorHandling(error))
     }
 
-    getBookings(): Promise<Booking[]> {
+    getAllocations(): Promise<Allocation[]> {
         return this.http.get(`${this.url}/list`).toPromise()
             .then((res: Response) => this.extractData(res))
             .catch((error: Error) => this.errorHandling(error))
     }
 
-    updateBooking(booking: Booking): Promise<Booking> {
-        return this.http.put(`${this.url}/${booking.id}`, JSON.stringify(booking)).toPromise()
+    updateAllocation(allocation: Allocation): Promise<Allocation> {
+        return this.http.put(`${this.url}/${allocation.id}`, JSON.stringify(allocation)).toPromise()
             .then((res: Response) => this.extractData(res))
             .catch((error: Error) => this.errorHandling(error))
     }
 
-    deleteBooking(booking: Booking): Promise<boolean> {
-        return this.http.delete(`${this.url}/${booking.id}`).toPromise()
+    deleteAllocation(allocation: Allocation): Promise<boolean> {
+        return this.http.delete(`${this.url}/${allocation.id}`).toPromise()
             .then((res: Response) => this.extractData(res))
             .catch((error: Error) => this.errorHandling(error));
     }

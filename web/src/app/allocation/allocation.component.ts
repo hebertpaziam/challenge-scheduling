@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ava-booking',
+  selector: 'ava-allocation',
   template: '<router-outlet></router-outlet>'
 })
-export class BookingComponent implements OnInit {
+export class AllocationComponent implements OnInit {
 
   constructor() { }
 

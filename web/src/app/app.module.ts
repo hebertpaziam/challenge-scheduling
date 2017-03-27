@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import { SharedModule } from './shared/shared.module';
 
 //MODULES
-import { BookingModule } from "./booking/booking.module";
+import { AllocationModule } from "./allocation/allocation.module";
 import { CustomerModule } from './customer/customer.module';
 import { ProjectModule } from './project/project.module';
 import { ProfessionalModule } from './professional/professional.module';
@@ -20,7 +20,7 @@ import { AuthService } from './shared/auth/auth.service';
 
 //COMPONENTS
 import { AppComponent } from './app.component';
-import { AppHomeComponent } from './app-home.component';
+import { AppHomeComponent } from './app-home/app-home.component';
 
 @NgModule({
     imports: [

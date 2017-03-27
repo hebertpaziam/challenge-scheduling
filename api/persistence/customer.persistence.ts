@@ -4,7 +4,7 @@ import { Customer } from '../domain/customer';
 import { ICrud } from './crud.interface';
 import { Connection } from './connection';
 
-import { BOOKINGS } from '../../app/shared/mock';
+import { ALLOCATIONS } from '../../app/shared/mock';
 
 export class CustomerPersistence implements ICrud<Customer> {
 

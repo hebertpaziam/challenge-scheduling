@@ -4,7 +4,7 @@ import * as http from 'http';
 import * as path from 'path';
 import { json } from 'body-parser';
 
-import { bookingRouter } from './service/booking.service';
+import { allocationRouter } from './service/allocation.service';
 import { customerRouter } from './service/customer.service';
 import { roleRouter } from './service/role.service';
 import { projectRouter } from './service/project.service';
@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname, '../')));
 app.use(json());
 
 // Route Configuration
-app.use('/api/booking/', bookingRouter);
+app.use('/api/allocation/', allocationRouter);
 app.use('/api/customer/', customerRouter);
 app.use('/api/role/', roleRouter);
 app.use('/api/project/', projectRouter);

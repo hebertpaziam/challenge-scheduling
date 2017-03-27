@@ -1,52 +1,52 @@
 import { MongoClient, Db, FindAndModifyWriteOpResultObject, InsertOneWriteOpResult } from 'mongodb';
 
-import { Booking } from '../domain/booking';
+import { Allocation } from '../domain/allocation';
 import { ICrud } from './crud.interface';
 import { Connection } from './connection';
 
-import { BOOKINGS } from '../../app/shared/mock';
+import { ALLOCATIONS } from '../../app/shared/mock';
 
-export class BookingPersistence implements ICrud<Booking> {
+export class AllocationPersistence implements ICrud<Allocation> {
 
-    list(): Promise<Booking[]> {
+    list(): Promise<Allocation[]> {
         let database: Db;
         return Promise.resolve(
             Connection.conn()
                 .then((db: Db) => {
                     database = db;
 
-                    return db.collection('booking').find({ deleted: false }).toArray();
+                    return db.collection('allocation').find({ deleted: false }).toArray();
                 })
-                .then((bookings: Booking[]) => {
+                .then((allocations: Allocation[]) => {
                     database.close();
 
-                    return bookings;
+                    return allocations;
                 })
         );
     }
 
-    read(id: number): Promise<Booking> {
+    read(id: number): Promise<Allocation> {
         let database: Db;
-        return Promise.resolve<Booking>(
+        return Promise.resolve<Allocation>(
             Connection.conn()
                 .then((db: Db) => {
                     database = db;
-                    return db.collection('booking').findOne({ id: id, deleted: false })
-                        .then((result: Booking) => { return result; });
+                    return db.collection('allocation').findOne({ id: id, deleted: false })
+                        .then((result: Allocation) => { return result; });
                 })
-                .then((booking: Booking) => {
+                .then((allocation: Allocation) => {
                     database.close();
 
-                    return booking as Booking;
+                    return allocation as Allocation;
                 }));
     }
 
-    create(booking: Booking): Promise<Booking> {
+    create(allocation: Allocation): Promise<Allocation> {
         let database: Db;
         let sequence: number;
 
-        return Promise.resolve<Booking>(
-            Connection.getNextSequence('bookingId')
+        return Promise.resolve<Allocation>(
+            Connection.getNextSequence('allocationId')
                 .then((retrievedSequence: number) => {
                     sequence = retrievedSequence;
                     return Connection.conn();
@@ -54,48 +54,48 @@ export class BookingPersistence implements ICrud<Booking> {
                 .then((db: Db) => {
                     database = db;
 
-                    return db.collection('booking').insertOne({
+                    return db.collection('allocation').insertOne({
                         id: sequence,
-                        startDate: booking.startDate,
-                        endDate: booking.endDate,
-                        percentual: booking.percentual,
-                        projectId: +booking.projectId,
-                        professionalId: +booking.professionalId,
+                        startDate: allocation.startDate,
+                        endDate: allocation.endDate,
+                        percentual: allocation.percentual,
+                        projectId: +allocation.projectId,
+                        professionalId: +allocation.professionalId,
                         project: null,
                         professional: null,
-                        deleted: booking.deleted
+                        deleted: allocation.deleted
                     })
                 })
                 .then((insertResult: InsertOneWriteOpResult) => {
                     if (insertResult.result.ok == 1) {
-                        let savedBooking: Booking = insertResult.ops[0] as Booking;
+                        let savedAllocation: Allocation = insertResult.ops[0] as Allocation;
 
-                        return savedBooking;
+                        return savedAllocation;
                     }
                     else {
-                        return Promise.reject<Booking>(Error("An error ocurred when trying to create a new record"));
+                        return Promise.reject<Allocation>(Error("An error ocurred when trying to create a new record"));
                     }
                 })
         );
     }
 
-    update(booking: Booking): Promise<Booking> {
+    update(allocation: Allocation): Promise<Allocation> {
         let database: Db;
 
-        return Promise.resolve<Booking>(
+        return Promise.resolve<Allocation>(
             Connection.conn()
                 .then((db: Db) => {
                     database = db;
-                    return db.collection('booking').findOneAndUpdate({ id: booking.id }, {
-                        id: booking.id,
-                        startDate: booking.startDate,
-                        endDate: booking.endDate,
-                        percentual: booking.percentual,
-                        projectId: +booking.projectId,
-                        professionalId: +booking.professionalId,
+                    return db.collection('allocation').findOneAndUpdate({ id: allocation.id }, {
+                        id: allocation.id,
+                        startDate: allocation.startDate,
+                        endDate: allocation.endDate,
+                        percentual: allocation.percentual,
+                        projectId: +allocation.projectId,
+                        professionalId: +allocation.professionalId,
                         project: null,
                         professional: null,
-                        deleted: booking.deleted
+                        deleted: allocation.deleted
                     }, { returnOriginal: false });
                 })
                 .then((updateResult: FindAndModifyWriteOpResultObject) => {
@@ -114,7 +114,7 @@ export class BookingPersistence implements ICrud<Booking> {
             .then((db: Db) => {
                 database = db;
 
-                return db.collection('booking').findOneAndUpdate(
+                return db.collection('allocation').findOneAndUpdate(
                     { id: id },
                     { $set: { 'deleted': true } });
             })

@@ -1,10 +1,10 @@
 import { Project } from './models/project.model';
-import { Booking } from './models/booking.model';
+import { Allocation } from './models/allocation.model';
 import { Customer } from './models/customer.model';
 import { Professional } from './models/professional.model';
 import { Role } from './models/role.model';
 
-export const BOOKINGS: Booking[] = [
+export const ALLOCATIONS: Allocation[] = [
     {
         id: 1,
         startDate: new Date("2017-03-11T02:00:00.000Z"),

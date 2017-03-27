@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AppHomeComponent } from './app-home/app-home.component';
 
-import { BookingModule } from './booking/booking.module';
+import { AllocationModule } from './allocation/allocation.module';
 import { ProfessionalModule } from './professional/professional.module';
 import { RoleModule } from './role/role.module';
 import { CustomerModule } from './customer/customer.module';
@@ -16,8 +16,8 @@ const ROUTES: Routes = [{
     canActivateChild: [AuthGuard],
     children: [
         {
-            path: 'bookings',
-            loadChildren: './booking/booking.module#BookingModule',
+            path: 'allocations',
+            loadChildren: './allocation/allocation.module#AllocationModule',
             canLoad: [AuthGuard],
         },
         {

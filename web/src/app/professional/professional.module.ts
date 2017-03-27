@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { BrowserModule } from "@angular/platform-browser";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -10,13 +11,13 @@ import { ProfessionalListComponent } from './professional-list/professional-list
 import { ProfessionalDetailsComponent } from './professional-details/professional-details.component';
 
 //services
-import { ProfessionalService } from "../shared/service/professional.service";
+import { ProfessionalService } from "../shared/services/professional.service";
 
 //routing
 import { professionalRouting } from './professional.routing';
 
 @NgModule({
-    imports: [professionalRouting, CommonModule, FormsModule, HttpModule, SharedModule],
+    imports: [professionalRouting, CommonModule, FormsModule, HttpModule, SharedModule, BrowserModule],
     declarations: [ProfessionalComponent,ProfessionalListComponent, ProfessionalDetailsComponent],
     providers: [ProfessionalService]
 })

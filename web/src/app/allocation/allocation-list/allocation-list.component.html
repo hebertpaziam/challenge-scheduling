@@ -12,13 +12,13 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let booking of bookings">
-                <td>{{ booking.id }}</td>
-                <td>{{ booking.name}}</td>
-                <td>{{ booking.contact }}</td>
-                <td>{{ booking.email }}</td>
-                <td>{{ getSponsorName(booking) }}</td>
-                <td><span class="glyphicon glyphicon-folder-open" [routerLink]="['/bookings', 'details', booking.id]"></span></td>
+            <tr *ngFor="let allocation of allocations">
+                <td>{{ allocation.id }}</td>
+                <td>{{ allocation.name}}</td>
+                <td>{{ allocation.contact }}</td>
+                <td>{{ allocation.email }}</td>
+                <td>{{ getSponsorName(allocation) }}</td>
+                <td><span class="glyphicon glyphicon-folder-open" [routerLink]="['/allocations', 'details', allocation.id]"></span></td>
             </tr>
         </tbody>
     </table>
